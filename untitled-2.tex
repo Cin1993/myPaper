@@ -318,17 +318,33 @@ A novel access structure based on tree structure is presented firstly and then t
 \subsection{Our Scheme}
 Our scheme is consisted of the following algorithm:
 \begin{itemize}
-	\item Setup($1^\lambda$): TA runs algorithm $\mathcal{G}(1^\lambda)$ to product four elements including $N=p\cdot q \cdot r,\mathbb{G},\mathbb{G}_T,e$. The subgroups $\mathbb{G}_p,\mathbb{G}_q,\mathbb{G}_r$ are from group $\mathbb{G}$. Note that, the subgroup $\mathbb{G}_p$ is used to subsequent steps. Considering security of the whole scheme, the subgroup $\mathbb{G}_r$ is used to generate random parameters. The subgroup $\mathbb{G}_q$ is mainly used to security analysis. And $g_p,g_q,g_r$ are the generators of three subgroups $\mathbb{G}_p,\mathbb{G}_q,\mathbb{G}_r$. $\mathbb{U}=\{a_1,a_2,\dots,a_n\}$ expresses all the attributes in the whole system. For each attribute, TA randomly chooses $a_{i,t_i} \in \mathbb{Z}_N, R_{i,t_i} \in \mathbb{Z}_n$ and calculates $A_{i,t_i}=g_{p}^{a_{i,t_i}}R_{i,t_i}$. In addition, TA generates three more parameters $\omega, \bar{\omega} \in \mathbb{Z}_N/0$ and $R_0 \in \mathbb{G}_r$. Last, TA computes $A_0=g_pR_0,Y=e(g_p,g_p)^{\omega},\bar{Y}=e(g_p,g_p)^{\bar{\omega}}$. The public key $PK$ and master secret key $MSK$ are defined as formula(\ref{PK}) and (\ref{MSK}):  
-	\begin{equation}\label{PK}
-		PK=\langle A_0,g_r,\{A_{i,t_i}\}_{1\leq t_i \leq n_i, 1 \leq i \leq n},Y,\bar{Y}\rangle
-	\end{equation}
-	\begin{equation}\label{MSK}
-		MSK=\langle g_p,\{a_{i,t_i}\}_{1\leq t_i \leq n_i, 1 \leq i \leq n},\omega,\bar{\omega}\rangle
-	\end{equation}
+	\item Setup($1^\lambda$): 
+		TA runs algorithm $\mathcal{G}(1^\lambda)$ to product four elements including $N=p\cdot q \cdot r,\mathbb{G},\mathbb{G}_T,e$. 
+		The subgroups $\mathbb{G}_p,\mathbb{G}_q,\mathbb{G}_r$ are from group $\mathbb{G}$. 
+		Note that, the subgroup $\mathbb{G}_p$ is used to subsequent steps. 
+		Considering security of the whole scheme, the subgroup $\mathbb{G}_r$ is used to generate random parameters. 
+		The subgroup $\mathbb{G}_q$ is mainly used to security analysis. 
+		And $g_p,g_q,g_r$ are the generators of three subgroups $\mathbb{G}_p,\mathbb{G}_q,\mathbb{G}_r$. $\mathbb{U}=\{a_1,a_2,\dots,a_n\}$ expresses all the attributes in the whole system. 
+		For each attribute, TA randomly chooses $a_{i,t_i} \in \mathbb{Z}_N, R_{i,t_i} \in \mathbb{Z}_n$ and calculates $A_{i,t_i}=g_{p}^{a_{i,t_i}}R_{i,t_i}$. 
+		In addition, TA generates three more parameters $\omega, \bar{\omega} \in \mathbb{Z}_N/0$ and $R_0 \in \mathbb{G}_r$. 
+		Two more parameters $u,v \in \mathbb{G}_p$ and a key derivation function \textbf{KDF} with output length $\ell$ are chosen by TA.
+		Last, TA computes $A_0=g_pR_0,Y=e(g_p,g_p)^{\omega},\bar{Y}=e(g_p,g_p)^{\bar{\omega}}$. 
+		The public key $PK$ and master secret key $MSK$ are defined as formula(\ref{PK}) and (\ref{MSK}):  
+		
+		\begin{equation}\label{PK}
+			PK=\left( A_0,g_r,\{A_{i,t_i}\}_{1\leq t_i \leq n_i, 1 \leq i \leq n},Y,\bar{Y}, u, v, \textbf{KDF}, \ell \right)
+		\end{equation}
+		\begin{equation}\label{MSK}
+			MSK=\langle g_p,\{a_{i,t_i}\}_{1\leq t_i \leq n_i, 1 \leq i \leq n},\omega,\bar{\omega}\rangle
+		\end{equation}
+
+
 	\item KeyGen(MSK,PK,L): For $\forall i \in \mathbb{Z}_k$, the DO randomly selects $d_i \in \mathbb{Z}_N$. Therefore, the $SK_L$ is like the format of formula(\ref{SK}):
 	\begin{equation}\label{SK}
 		SK_L=\langle D_0=g_p^{\omega - \sum_{i=1}^{k}d_i}, \bar{D}_0=g_p^{\bar{\omega} - \sum_{i=1}^{k}d_i}, \{D_j=g_p^{\frac{d_i}{a_{i,t_i}}}\}_{1 \leq i \leq k } \rangle
 	\end{equation}
+
+
 	\item Encrypt(PK,m,T): 
 		\begin{itemize}
 			\item [a).]	DO selects random values $R_0' \in \mathbb{G}_r$ and $s \in \mathbb{Z}_N$ to encrypt the message $m \in \mathbb{G}$ as follows:
@@ -336,7 +352,10 @@ Our scheme is consisted of the following algorithm:
 							C_0 = A_0^sR'_0, \ \tilde{C} = mY^s
 						\end{equation}
 
-			\item [b).] Let secret $s$ be assigned in access tree and the root node of $\mathcal{T}$ is set to be $s$. 
+			\item [b).] DO sets a session key $\textbf{DK}=e(g_p,g_p)^{\omega s}$, and computes $\textbf{KDF}(\textbf{DK}, \ell) = VKEY \parallel \eta $ where $\eta$ is a random number and $VKEY$ is used to verify.
+						Then $\widehat{C}=u^{H(VKEY)}v^{H(\eta)}$.
+						
+			\item [c).] Let secret $s$ be assigned in access tree and the root node of $\mathcal{T}$ is set to be $s$. 
 						All child nodes except for leaf nodes are marked un-assigned status and root node is assigned status.
 						Then, for each unassigned node, do the following operations recursively:
 						\begin{itemize}
@@ -344,7 +363,7 @@ Our scheme is consisted of the following algorithm:
 							\item [$\bullet$] If the node logic operator is \textit{OR},  the child nodes of this node are set $s$;	
 							\item [$\bullet$] If the node logic operator is \textit{Threshold} with the threshold value $h$, it will arbitrarily generate a polynomial $f$ that satisfies $f(0)=s$ and the degree of polynomial is $h-1$. For the i-th node, the value is assigned $f(i)$. 
 						\end{itemize}
-			\item [c).] Suppose that a \textit{LPNode} in access tree has a shared secret $s_\alpha$. 
+			\item [d).] Suppose that a \textit{LPNode} in access tree has a shared secret $s_\alpha$. 
 						Then calculate a ciphertext component for each attribute in system according to formula(\ref{CT}), where $s_{i,t_i} \in \mathbb{Z}_N$ is a random value and $R'_{i,t_i}$ is also a random parameter produced from $\mathbb{G}_r$. 
 						Therefore, the ciphertext of \textit{LPNode} is like formula(\ref{Ca}):
 			\begin{equation}\label{CT}
@@ -359,7 +378,7 @@ Our scheme is consisted of the following algorithm:
 			\end{equation}
 			where $R_\alpha \in \mathbb{G}_r$. Ultimately, output the final ciphertext:
 			\begin{equation}
-				CT=\langle \tilde{C},C_0,\{C_\alpha\}_{\forall \alpha \ in \ T} \rangle
+				CT=\langle \tilde{C},C_0,\{C_\alpha\}_{\forall \alpha \ in \ T}, \widehat{C} \rangle
 			\end{equation}
 		\end{itemize}
 	
@@ -407,23 +426,30 @@ Hence, there is no necessary to participate in the subsequent decryption phase.
 The next description operation is completed by executing formula(\ref{CT2}) when $\theta_\alpha=1$:
 \begin{equation}\label{CT2}
 	\begin{split}
-		CT' &=\frac{1}{e(C_0,D_0^*)PreDecNode(root(T))}\\
+		X   &=\frac{1}{e(C_0,D_0^*)PreDecNode(root(T))}\\
 			&=\frac{1}{e(g_p^sR_0^sR'_0,g_p^{z(\omega-d)})e(g_p,g_p)^{dsz}}\\
 			% &=\frac{1}{e(g_p^s,g_p^{z(\omega-d)})e(g_p,g_p)^{dsz}}\\
 			&=\frac{1}{e(g_p,g_p)^{sz(\omega -d)}e(g_p,g_p)^{dsz}}\\
 			&=\frac{1}{e(g_p,g_p)^{sz\omega}}
 	\end{split}
 \end{equation}
-At last, outsourced server transfers $CT'$ to DataUser.
+At last, outsourced server sets $T_1 = \widehat{C}$ and transfers $CT'=\left( T_1, X \right)$ to DataUser.
 	\item Decrypt(CT',SK,CT): DataUser receives $CT'$ sent by outsourced server and use $SK$ to decrypt ciphertext. The decryption process is described as formula(\ref{Decrypt}):
 	\begin{equation}\label{Decrypt}
 		\begin{split}
-			\frac{\tilde{C}}{(CT')^\frac{1}{z}} &= \frac{mY^s}{e(g_p.g_p)^{s\omega}} 
+			\frac{\tilde{C}}{(X)^\frac{1}{z}} &= \frac{mY^s}{e(g_p.g_p)^{s\omega}} 
 												= \frac{me(g_p.g_p)^{s\omega}}{e(g_p.g_p)^{s\omega}} 
 												= m
 		\end{split}
 	\end{equation}
+
+	\item Verify(CT,CT'): DataUser verifies the correctness of result generated from outsourced server.
+		  The detail procedures are as followings: 
+		\begin{itemize}
+			\item[a).] If $T_1=\widehat{C}$ holds, let $\textbf{DF}=X^{\frac{1}{z}}$
+		\end{itemize}
 \end{itemize}
+
  
 \section{Security Proof}\label{section4}
 In this section, we will give a proof of security of our scheme. The idea of Lai et.al inspires our thinking and based on dual encryption system invented by Waters et.al we completed our proof. Above all, for convenience, we denote the corresponding definitions used in Water's paper. Both ciphertext and private keys can take on one of two indistinguishable forms the \textit{normal} or the \textit{semi-functional} in dual system encryption system. A \textit{normal} private key or ciphertext are generated from key generation or encryption algorithm. As for semi-functional private key, it can decrypt all normally generated ciphertext. However, decryption will fail if one try to decrypt a semi-functional ciphertext with a semi-functional privacy key. Similarly, semi-functional ciphertext can be decrypted only by normal private key. Note that the semi-functional ciphertext and semi-functional private keys are used in our proof process, and you can't search for them in the actual system.\\

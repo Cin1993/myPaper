@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  23 JAN 2019 11:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  19 FEB 2019 16:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"e:/paper/Hidden Policy/untitled-2.tex"
-(e:/paper/Hidden Policy/untitled-2.tex
+**e:/paper/myPaper/untitled-2.tex
+(e:/paper/myPaper/untitled-2.tex
 LaTeX2e <2018-04-01> patch level 5
 (c:/texlive/2018/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
@@ -84,13 +84,13 @@ File: ts1enc.dfu 2018/04/05 v1.2c UTF-8 support for inputenc
    defining Unicode char U+25EF (decimal 9711)
    defining Unicode char U+266A (decimal 9834)
    defining Unicode char U+FEFF (decimal 65279)
-))) (./svjour3.cls
+))) (e:/paper/myPaper/svjour3.cls
 Document Class: svjour3 2007/05/08 v3.2 
 LaTeX document class for Springer journals
 Class Springer-SVJour3 Info: extra/valid Springer sub-package (-> *.clo) 
 (Springer-SVJour3)           not found in option list of \documentclass
 (Springer-SVJour3)           - autoactivating "global" style.
-(./svglov3.clo
+(e:/paper/myPaper/svglov3.clo
 File: svglov3.clo 2009/12/18 v3.2 style option for standardised journals
 
 SVJour Class option: svglov3.clo for standardised journals
@@ -296,7 +296,7 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \@thisruleclass=\count126
 \@lastruleclass=\count127
 \@thisrulewidth=\dimen147
-) (./untitled-2.aux)
+) (e:/paper/myPaper/untitled-2.aux)
 \openout1 = `untitled-2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
@@ -395,7 +395,7 @@ Package pdftex.def Info: EMR1.pdf  used on input line 140.
  [2]
 Underfull \vbox (badness 1221) has occurred while \output is active []
 
- [3 <./EMR1.pdf>] [4]
+ [3 <e:/paper/myPaper/EMR1.pdf>] [4]
 
 LaTeX Warning: Reference `' on page 5 undefined on input line 202.
 
@@ -414,38 +414,38 @@ Package pdftex.def Info: figure.pdf  used on input line 303.
 
 Underfull \vbox (badness 2564) has occurred while \output is active []
 
- [7] [8 <./figure.pdf>]
-Overfull \hbox (6.53923pt too wide) in paragraph at lines 375--379
+ [7] [8 <e:/paper/myPaper/figure.pdf>] [9]
+Overfull \hbox (6.53923pt too wide) in paragraph at lines 394--398
 \OT1/cmr/m/n/10 ing de-fined func-tions. If the node is a \OT1/cmr/m/it/10 LPN-ode\OT1/cmr/m/n/10 , it will ex-e-cute \OT1/cmr/m/it/10 PreDecNode($\OML/cmm/m/it/10 $\OT1/cmr/m/it/10 )\OT1/cmr/m/n/10 .
  []
 
-[9] [10]
+[10] [11]
 \c@myLemma=\count136
- [11] [12]
-Overfull \hbox (6.79634pt too wide) in paragraph at lines 486--488
+ [12]
+Overfull \hbox (6.79634pt too wide) in paragraph at lines 512--514
 []\OT1/cmr/m/n/10 Given the dis-tri-bu-tions in Assumption3[], $\OML/cmm/m/it/10 D \OT1/cmr/m/n/10 = (\U/msb/m/n/10 G\OML/cmm/m/it/10 ; g[]; g[]X[]; g[]Y[]; Z[]Z[]g[]\OT1/cmr/m/n/10 )$. 
  []
 
 [13]
-Overfull \hbox (28.48543pt too wide) in paragraph at lines 499--500
+Overfull \hbox (28.48543pt too wide) in paragraph at lines 525--526
 []\OT1/cmr/m/n/10 If Assumption1[],Assumption2[] and Assumption3[] hold, $\OML/cmm/m/it/10 Game[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 Game[]$
  []
 
-[14] [15] (./untitled-2.aux)
+[14] [15] (e:/paper/myPaper/untitled-2.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
  3825 strings out of 492646
- 52909 string characters out of 6133325
- 119134 words of memory out of 5000000
+ 53039 string characters out of 6133325
+ 121135 words of memory out of 5000000
  7641 multiletter control sequences out of 15000+600000
  12619 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,18n,27p,1175b,402s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,18n,27p,1145b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
  <c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on ./untitled-2.pdf (15 pages, 411606 bytes).
+Output written on e:/paper/myPaper/untitled-2.pdf (15 pages, 416579 bytes).
 PDF statistics:
  169 PDF objects out of 1000 (max. 8388607)
  112 compressed objects within 2 object streams
