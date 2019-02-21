@@ -72,7 +72,7 @@
 \begin{document}
 
 % \title{An Efficient CP-ABE with Privacy-preserving and Decryption Testing Scheme in Cloud Computing}
-\title{A Hidden Tree Structure CP-ABE with Decryption Testing Scheme and its Application in Cloud Computing}
+\title{A Verifiable Hidden Tree Structure CP-ABE with Decryption Testing Scheme and its Application in Cloud Computing}
 %\titlerunning{Short form of title}        % if too long for running head
 
 
@@ -102,27 +102,36 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 \maketitle
 
 \begin{abstract}
-	With the rapid increase of data and the tremendous improvement of cloud computing infrastructures, more and more users are storing their personal data(e.g electronic medical records, address books, smart phone data etc.) in cloud, but the security of cloud storage supported by cloud service providers(CSP) is semi-secure to users, and the privacy of users cannot be fully guaranteed. 
-	Therefore, how to protect the security and confidentiality of data in cloud storage has become hot spot that researchers pay attention to. 
-	Since attribute-based encryption has the characteristics of one-to-many encryption and fine-grained access control, attribute-based encryption scheme is widely considered as an ideal solution. 
-	However, the basic CP-ABE encryption scheme has the flaws that access structure may leak user privacy, inefficiency, and weak expression ability. 
-	In view of the above shortcomings, this paper proposes a CP-ABE encryption scheme with the following features: 
-	1. in order to enhance the express ability the access structure, we adopt a tree-based access structure instead of the widespread AND gate structure; 
-	2. a testing phase is used to eliminate unnecessary operations and improve decryption efficiency; 
-	3. to fully utilize the resources of the cloud server and decrease the local decryption options, we outsource the time-consuming pairing operation to security cloud server. 
+	% With the rapid increase of data and the tremendous improvement of cloud computing infrastructures, more and more users are storing their personal data(e.g electronic medical records, address books, smart phone data etc.) in cloud, but the security of cloud storage supported by cloud service providers(CSP) is semi-secure to users, and the privacy of users cannot be fully guaranteed. 
+	% Therefore, how to protect the security and confidentiality of data in cloud storage has become hot spot that researchers pay attention to. 
+	% Since attribute-based encryption has the characteristics of one-to-many encryption and fine-grained access control, attribute-based encryption scheme is widely considered as an ideal solution. 
+	% However, the basic CP-ABE encryption scheme has the flaws that access structure may leak user privacy, inefficiency, and weak expression ability. 
+	% In view of the above shortcomings, this paper proposes a CP-ABE encryption scheme with the following features: 
+	% 1. in order to enhance the express ability the access structure, we adopt a tree-based access structure instead of the widespread AND gate structure; 
+	% 2. a testing phase is used to eliminate unnecessary operations and improve decryption efficiency; 
+	% 3. to fully utilize the resources of the cloud server and decrease the local decryption options, we outsource the time-consuming pairing operation to security cloud server. 
+	% Besides, the scheme is provably secure against adaptively chosen-ciphertext attack. 
+	% Finally, we apply our scheme into EMR system established in cloud computing environment.
+	Ciphertext policy attribute based encryption(CP-ABE) is widely used in secure data sharing with one-to-many feature and the characteristics of fine-grained access. 
+	However, the basic CP-ABE encryption scheme has the flaws that access structure may leak user privacy.
+	At the same time, excessive bilinear pairing operations in decryption phase are a significant burden for users participating in the system. 
+	Furthermore, the verifiable decryption testing is not explored in CP-ABE.
+	Based on the above three factors, we propose a verifiable hidden tree structure CP-ABE with decryption testing scheme in this paper.
 	Besides, the scheme is provably secure against adaptively chosen-ciphertext attack. 
 	Finally, we apply our scheme into EMR system established in cloud computing environment.
-\keywords{ciphertext policy attribute-based encryption;hidden policy;cloud computing;}
+\keywords{CP-ABE;hidden policy;verifiable decryption testing;cloud computing}
 \end{abstract}
 
 \section{Introduction}
-	In the era of data explosion, the development of cloud computing has given users a better and more convenient way to share data and store data.
-	Users can store and retrieve their own data on the cloud platform and also easily share data with other users on the cloud platform. 
-	However, since the user stores the data on the cloud platform and the data is out of the user's control, it will bring out an apparent issue that if malicious users attack cloud server and obtain the data belonging to normal users, the user's privacy will be leaked and even causes incalculable losses. 
-	Therefore, how to ensure the privacy of users and the security of cloud data has become an urgent problem to be solved. 
-	ABE as a novel encryption notation, not only provides access control but also provides the function of encrypting data, consequently, it is regarded as a positive method to handle this matter. 
-	However, although attribute-based encryption can solve above problems, it has another hidden danger which is access structure is passed in clear text during the process of encryption and decryption.
-	Once some malicious attackers steal the access structure stored in clear text, the user's privacy will be revealed.
+	In the era of data explosion, with the tremendous improvement of cloud computing infrastructures, cloud computing platforms have given users a better and more convenient way to share data and store data.
+	%Users can store and retrieve their own data on the cloud platform and also easily share data with other users on the cloud platform. 
+	However, since the user stores the data on the cloud platform and the data is out of the user's control, it will bring out many severe issues.
+	One of the most obvious problem is if malicious users attack cloud server and obtain the data belonging to normal users, the user's privacy will be leaked and even causes incalculable losses. 
+	Therefore, how to ensure the privacy of users and the security of cloud data sharing has become an urgent problem to be solved. 
+	ABE as a novel encryption notation, not only provides access control but also provides the function of encrypting data, consequently, it is regarded as a promising method to handle this matter. 
+	Although attribute-based encryption can solve above problems, it has another hidden danger which is access structure is passed in plaintext during the process of encryption and decryption.
+	Once some malicious attackers steal the access structure stored in clear text, the user's privacy will also be revealed. 
+	Thus, it is crucial to encrypt the access structure.
 
 	Figure\ref{EMR1} is a simple Electronic Medical Record System structure. 
 	Here we take the EMR system as an example. 
@@ -446,7 +455,8 @@ At last, outsourced server sets $T_1 = \widehat{C}$ and transfers $CT'=\left( T_
 	\item Verify(CT,CT'): DataUser verifies the correctness of result generated from outsourced server.
 		  The detail procedures are as followings: 
 		\begin{itemize}
-			\item[a).] If $T_1=\widehat{C}$ holds, let $\textbf{DF}=X^{\frac{1}{z}}$
+			\item[a).] If $T_1=\widehat{C}$ holds, let $\textbf{DF}=X^{-\frac{1}{z}}=e(g_p,g_p)^{s \omega}$ and $\textbf{KDF}(\textbf{DK},\ell)=VKEY \parallel \eta$; otherwise, output the terminator $\perp$;
+			\item[b).] If $u^{H(VKEY)}v^{H(\eta)}=\widehat{C}$ holds, it denotes the testing results and outsourced decryption are proper, furthermore, DataUser can calculate a right message $m$; otherwise, output the terminator $\perp$; 
 		\end{itemize}
 \end{itemize}
 
