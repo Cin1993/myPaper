@@ -133,14 +133,14 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	Once some malicious attackers steal the access structure stored in clear text, the user's privacy will also be revealed. 
 	Thus, it is crucial to encrypt the access structure.
 
-	Figure\ref{EMR1} is a simple Electronic Medical Record System structure. 
 	Here we take the EMR system as an example. 
+	Figure\ref{EMR1} is a simple Electronic Medical Record System structure. 
 	For convenience, we simplify EMR system to three parts: data owner(including patients), cloud storage server(CSS), data recipient(including doctor, malicious attacker).
 	The data owner encrypt his EHR via CP-ABE and upload it to CSS. 
 	CSS are deployed in an open environment that anyone can access.
 	Under normal circumstances, a data recipient who has the private key can decrypt ciphertext and obtain EMR transmitted by data owner.
-	For example, both doctorA and doctorB in Figure\ref{EMR1} can normally decrypt the EMR.
-	In another case, for a malicious attacker, although he can not decrypt the EMR, he is able to get the access structure stored in clear text and obtain the data owner's information.
+	For example, both doctorA and doctorB in Figure\ref{EMR1} can normally decrypt the EMR because their private keys satisfy access structure.
+	In another case, for a malicious attacker, although he can not decrypt the EMR, he is able to get the access structure stored in plaintext and obtain the data owner's information.
 	For instance, in Figure\ref{EMR1}, the malicious may get the sensitive information that patient whose $PID$ is 28496 suffers from diabetes.  
 
 
@@ -151,25 +151,21 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	\end{figure}
  
 \subsection{Related Work}
-	In 1984, Shamir introduced the idea of identity-based encryption(IBE) to address certificate management and update issues in public key cryptography.
-	In the scheme, the user's identity is used as the public key, and the public key is allowed to be an arbitrary string, such as an email address.
-	However, IBE can only achieve one-to-one decryption, which means that the owner encrypts the message through the recipient's public key, and the message can only be decrypted by the receiver, which is coarse-grained access control. 
-	Based on IBE, Sahai and Waters proposed a fuzzy identity-based encryption scheme(Fuzzy IBE). 
+	Since Shamir introduced the idea of identity-based encryption(IBE) to address certificate management and update issues in public key cryptography, Sahai and Waters proposed a fuzzy identity-based encryption scheme(Fuzzy IBE) based on IBE. 
+	% In the scheme, the user's identity is used as the public key, and the public key is allowed to be an arbitrary string, such as an email address.
+	% However, IBE can only achieve one-to-one decryption, which means that the owner encrypts the message through the recipient's public key, and the message can only be decrypted by the receiver, which is coarse-grained access control. 
 	In the Fuzzy IBE, the user has multiple identity attributes, and only the decryptor needs to satisfy the threshold $d$ identity features to decrypt correctly. 
 	This is the original Attribute-Based Encryption(ABE) mechanism. 
-	In 2006, Goyal et al. introduced KP-ABE, a crypto system for fine-grained sharing of encrypted data. 
-	In this scheme, the ciphertext is formed with the set of attributes and user key is embedded with policy. 
-	When the user attributes satisfy the access structure the user can decrypt the message. 
-	In 2007, Ostrovsky et al. introduced a non-monotonic access structure containing positive and negative attributes. 
-	It supports AND, OR and NOT between attributes, enriching the logical expression ability of access structure, and filling the gaps that cannot represent logical Non. Cheung et al. improved the security proof of Bethencourt et al. work and proved for the first time that the chosen ciphertext under the standard model and the Decision Bilinear Diffie-Hellman(DBDH) assumption is secure. 
-	In 2008, Goyal et al. proposed an improved version of CP-ABE that supports the bounded size access trees with threshold gate and security proved the under the standard model, decisional Bilinear Diffie-Hellman assumption. 
-	In 2011, Waters proposed a new approach to express access control through a linear secret sharing scheme(LSSS) matrix over attributes. 
-	However, the size of the ciphertext and the encryption and decryption overhead increase linearly.
+	Afterwards there were two kinds of schemes derived from it, key policy attribute based encryption(KP-ABE) and ciphertext policy attribute based encryption(CP-ABE). 
+	Compared to KP-ABE, CP-ABE could be deployed in more schemes and applications for the more flexible. 
+	Therefore, we mainly discuss different CP-ABE schemes in the rest of this paper.
 
-% a new paragraph
-	In CP-ABE scheme, when a message sender encrypts a message, along with the encrypted message, the sender species in clear text the policy used to encrypt the message. 
-	It will cause a serious situation that the policy may reveal some sensitive information about the message being encrypted. 
-	Therefore, hidden access structure in CP-ABE scheme is also crucial. 
+	% a new paragraph
+	Currently, there are three types of access structures that are utilized in proposed CP-ABE schemes, AND gate, tree structure and linear secret sharing scheme(LSSS).
+	[][][][][][][][][][][][][][][][].
+
+	% a new paragraph
+	Different access structures can only improve the expressive ability, and can not solve the problem of the access structure leaking user privacy.
 	In 2008, Nishide et al. proposed a partially hidden CP-ABE scheme to overcome the above problems. 
 	They used AND gate on multi-valued attributes with wildcard access structures and used inner product predicate encryption techniques, and proved that their scheme is selectively secure. 
 	In 2011, Lai et al. improved the Nishide et al. scheme and proposed a fully secure hidden policy scheme with the same access structure used in Nishide et al. 
@@ -184,8 +180,15 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	In 2016, Phuong et al. proposed a new scheme to overcome the ciphertext size problem in hidden strategies. 
 	However, the cumbersome user private key calculation process and complex encryption and decryption operations limit its application.
 
-% a new paragraph
-	Through the ABE encryption scheme mentioned above, we can find that although they all have the identical function of hidden policy, there is a problem that cannot be neglected in terms of efficiency. 
+	% a new paragraph
+	For most CP-ABE schemes, complex pairing operations result in low efficiency, further, it limits the practical application of these schemes.
+	Green et al. firstly introduced the notion of ABE with outsourced decryption to solve the issue of low efficiency. 
+	Afterwards, Lai et.al optimized Green's scheme and added verification function to guarantee the correctness of the transformation done by the cloud server.
+	It perfectly settles the issues including low efficiency and correctness of transformation ciphertext, while there are parallel instances in the encryption and decryption algorithms, it can increase communication overhead.
+	Lin et al. used key derivation function(KDF) and random function techniques to successfully reduce excessive communication overhead.
+
+	% a new paragraph
+	Through the CP-ABE encryption scheme mentioned above, we can find that although they all have the identical function of hidden policy, there is a problem that cannot be neglected in terms of efficiency. 
 	The efficiency of scheme is a key points we have to consider when scheme is applied in actual scene. 
 	Moreover, most of the schemes use the access structure with AND gate, which cannot indicate threshold value, and the expression ability is lower compared with the LSSS and the tree-based structure. 
 	Finally, as mentioned above, due to the limitation of efficiency, most of the solutions do not propose a reasonable application scenario.
