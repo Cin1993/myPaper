@@ -389,7 +389,7 @@ Our scheme is consisted of the following algorithm:
 
 
 
-	\item GenToken(CT,SK): DO selects a random factor $z \in \mathbb{Z}_N$ and does the following operations: $D_i^*=D_i^z,\bar{D}_0^*=\bar{D}_0^z,D_0^*=D_0^z,H_\alpha^*=H_\alpha^z$. 
+	\item GenTk$_{out}$(PK,SK): DO selects a random factor $z \in \mathbb{Z}_N$ and does the following operations: $D_i^*=D_i^z,\bar{D}_0^*=\bar{D}_0^z,D_0^*=D_0^z,H_\alpha^*=H_\alpha^z$. 
 	Finally, the DO output the TK as the formula(\ref{TK}) and CT to outsourced server by security channel.
 	\begin{equation}\label{TK}\\
 		TK=\langle D_i^*,\bar{D}_0^*,H^*_\alpha  \rangle
@@ -534,33 +534,67 @@ In the former, we mainly adopt mathematical methods to analyze the efficiency of
 In order to verify the correctness of the theoretical analysis scheme, we conducted a simulation experiment in the latter. 
 \subsection{Theoretical Analysis}
 
+Firstly, let us present the notations appearing in the following. $N$ expresses the number of attributes in the whole system. $T_{\mathbb{G}},T_{\mathbb{G}_T}$ indicate the cost time of operations of group $\mathbb{G}$ and group $\mathbb{G}_T$. Note that the operations only include exponentiation for convenience. $|*|$ is the bit-length of $*$. 
+
+% a new paragraph
 Table\ref{propertyTable} indicates the properties between our scheme and other related scheme. 
 $\checkmark$ means the scheme satisfies this property, conversely, $\times$ shows the schemes can not match this property. 
-From Table\ref{propertyTable}, we can get the conclusion that compared with other schemes, our scheme not only has strong expressive ability, but also has more comprehensive features to improve efficient.  
+From Table\ref{propertyTable}, we can get the conclusion that compared with other schemes, our scheme not only has more comprehensive features to improve efficient, testing and outsourcing specifically, but also can verify the correctness of results calculated by cloud servers.
+Meanwhile, due to the tree structure, our scheme has more expression ability.  
 
-Firstly, let us present the notations appearing in the following. $N$ expresses the number of attributes in the whole system. $T_{\mathbb{G}},T_{\mathbb{G}_T}$ indicate the cost time of operations of group $\mathbb{G}$ and group $\mathbb{G}_T$. Note that the operations only include exponentiation for convenience. $|*|$ is the bit-length of $*$. 
 % table1
 \begin{table}[h] 
 	\caption{PROPERTY COMPARISON TABLE}
-	\resizebox{\textwidth}{13mm}
+	\resizebox{\textwidth}{12mm}
 	{
-	% \begin{tabular}{p{3cm}|p{5cm}|p{5cm}} %设置了每一列的宽度，强制转换。
-	\begin{tabular}{cccccc}
-	\toprule[1.5pt]
-	\textbf{Scheme} & \textbf{Access Structure} & \textbf{Hidden Policy} & \textbf{Testing} & \textbf{Outsourcing} & \textbf{Security Model} \\ %用&来分隔单元格的内容 \\表示进入下一行
-	\midrule %画一个横线，下面的就都是一样了，这里一共有4行内容
-	Nishide & AND-gates & \checkmark & $\times$ & $\times$ & selectively-CCA \\
-	Lai     & AND-gates & \checkmark & $\times$ & $\times$  & adaptively-CCA \\
-	Luan    & Tree & $\times$ & $\times$ & $\times$ & selectively-CPA \\
-	Li		& AND-gates & \checkmark & \checkmark & $\times$ &  selective-CPA\\
-	Xu		& Tree		& \checkmark & $\times$   & $\times$ & selectively-CPA\\	
-	Ours    & Tree & \checkmark & \checkmark & \checkmark & adaptively-CCA \\
-	\bottomrule[1.5pt]
-	\end{tabular}
+		\begin{tabular}{ccccccc}
+		% \toprule[1.5pt]
+		\toprule
+		\textbf{Scheme} & \textbf{Access Structure} & \textbf{Hidden Policy} & \textbf{Testing} & \textbf{Outsourcing} & \textbf{Verification} &\textbf{Security Model} \\  \hline%用&来分隔单元格的内容 \\表示进入下一行
+		\midrule %画一个横线，下面的就都是一样了，这里一共有4行内容
+		Nishide & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & selectively-CCA \\
+		Lai     & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & adaptively-CCA  \\
+		Luan    & Tree 		& $\times$   & $\times$   & $\times$   & $\times$   & selectively-CPA \\
+		Li		& AND-gates & \checkmark & \checkmark & $\times$   & $\times$   & selectively-CPA \\
+		Xu		& Tree		& \checkmark & $\times$   & $\times$   & $\times$   & selectively-CPA \\	
+		Ours    & Tree 		& \checkmark & \checkmark & \checkmark & \checkmark & adaptively-CCA  \\
+		\bottomrule
+		\end{tabular}
 	}
 	\label{propertyTable}
 \end{table}
 
+% table2
+\begin{table}[h]
+	\caption{Storage of Different Schemes}
+	\resizebox{\textwidth}{10mm}
+	{
+		\begin{tabular}{cccc}
+			\toprule
+			\textbf{Scheme} & \textbf{Public Key} & \textbf{Secret Key} & \textbf{Ciphertext} \\ \hline
+			\midrule
+			Nishide & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$ & $(3n+1)|\mathbb{G}|$ & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$  \\
+			Lai & $(N+2)|\mathbb{G}|+|\mathbb{G}_T|$ & $(n+1)|\mathbb{G}|$ & $(N+1)|\mathbb{G}|+|\mathbb{G}_T|$ \\
+			% Nishide & a & a & a  \\
+			Our & $2|\mathbb{G}_T|+(N+4)|\mathbb{G}|$ & $(2+k)|\mathbb{G}|$ & $(2+|\alpha|+|\alpha|N)|\mathbb{G}|+(1+|\alpha|)|\mathbb{G}_T|$  \\
+		\bottomrule
+		\end{tabular}
+	}
+	\label{storageTable}
+\end{table}
+
+
+% table3
+% \begin{table}
+% 	\caption{Efficient of Different Schemes}
+% 	\resizebox{\textwidth}{10mm}
+% 	{
+% 		\begin{tabular}{cccc}
+% 			\textbf{Scheme} & \textbf{Encryption Time} & \textbf{Decryption Time} & \textbf{} &
+			
+% 		\end{tabular}
+% 	}
+% \end{table}
 \subsection{Experimental Simulation}
 
 
