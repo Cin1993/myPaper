@@ -46,12 +46,10 @@ INPUT c:/texlive/2018/texmf-dist/tex/latex/ifsym/ifsym.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/ifsym/ifsym.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/tabularx.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/tabularx.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-INPUT c:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT e:/paper/myPaper/untitled-2.aux
 INPUT e:/paper/myPaper/untitled-2.aux
 OUTPUT e:/paper/myPaper/untitled-2.aux

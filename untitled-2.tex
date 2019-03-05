@@ -30,8 +30,9 @@
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage[misc]{ifsym}
-\usepackage{tabularx}
+% \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{multirow}
 
 %\usepackage{titling}
 %\thanks{}
@@ -394,49 +395,55 @@ Our scheme is consisted of the following algorithm:
 	\begin{equation}\label{TK}\\
 		TK=\langle D_i^*,\bar{D}_0^*,H^*_\alpha  \rangle
 	\end{equation}
-	\item PreDecrypt(CT,TK,PK): 
-	In this process, outsourced server runs the following defined functions. 
-	If the node is a \textit{LPNode}, it will execute \textit{PreDecNode($\alpha$)}. 
-	Similarly, if the node is a normal node, it will execute \textit{PreDecNode($\beta$)} where $u$ is the number of child of node $\beta$ and $h$ is the threshold value of node $\beta$.
-	\begin{equation}\label{PreDecNodeA}
-		PreDecNode(\alpha)=\prod_{i=1}^{k}e(C_{i,t_i},D_i^*)
-	\end{equation}
-	PreDecNode($\beta$)
-	\begin{equation}\label{PreDecNodeB}
-		=
-		\begin{cases}
-		% \prod_{i=1}^{h}PreDecNode(Child(\beta,i))^{\prod_{j=1,j\neq i}^{h}\frac{i}{j-i}}, &Option(\beta)=Threshold\\
-		\prod_{i=1}^{h}PreDecNode(Child(\beta,i))^{\Delta_{i,\beta}(0)}, &Option(\beta)=Threshold\\
-		\prod_{i=1}^{u}PreDecNode(Child(\beta,i)), &Option(\beta)=AND\\
-		PreDecNode(Child(\beta,i)), &Option(\beta)=OR
-		\end{cases}
-	\end{equation}
-	\item Testing: The outsourced server calculates $\theta_\alpha=\frac{H_\alpha^*}{e(\bar{C}_\alpha,\bar{D_0}^*)PreDecNode(\alpha)}$. 
-	If the \textit{LPNode} satisfies the attributes represented by each leaf node under it, then it can obtain $PreDecNode(\alpha)=e(g_p,g_p)^{zds_\alpha}$. Further, the outsourced server performs the following calculations:
-	\begin{equation}
-		\begin{split}
-			\theta_\alpha &=\frac{H_\alpha^*}{e(\bar{C}_\alpha,\bar{D_0}^*)PreDecNode(\alpha)}\\
-						  &=\frac{\bar{Y}^{zs_\alpha}}{e(A_0^{s_\alpha}R_\alpha,g_p^{z(\bar{\omega}-d)})e(g_p,g_p)^{zds_\alpha}}\\
-						%   &=\frac{e(g_p,g_p)^{\bar{\omega}zs_\alpha}}{e(g_p^{s_\alpha},g_p^{z(\bar{\omega}-d)})e(g_p,g_p)^{zds_\alpha}}\\
-						%   &=\frac{e(g_p,g_p)^{\bar{\omega}zs_\alpha}}{e(g_p^{s_\alpha},g_p^{z(\bar{\omega}-d)})	e(g_p,g_p)^{zds_\alpha}}\\
-						  &=\frac{e(g_p,g_p)^{\bar{\omega}zs_\alpha}}{e(g_p,g_p)^{zs_\alpha (\bar{\omega}-d)} e(g_p,g_p)^{zds_\alpha}}\\
-						  &=1
-		\end{split}
-	\end{equation}
-Evidently $\theta_\alpha$ will be a random value, if the \textit{LPNode} cannot satisfy attributes. 
-When $\theta_\alpha$ is a random value, it indicates this \textit{LPNode} is an error node. 
-Hence, there is no necessary to participate in the subsequent decryption phase. 
-The next description operation is completed by executing formula(\ref{CT2}) when $\theta_\alpha=1$:
-\begin{equation}\label{CT2}
-	\begin{split}
-		X   &=\frac{1}{e(C_0,D_0^*)PreDecNode(root(T))}\\
-			&=\frac{1}{e(g_p^sR_0^sR'_0,g_p^{z(\omega-d)})e(g_p,g_p)^{dsz}}\\
-			% &=\frac{1}{e(g_p^s,g_p^{z(\omega-d)})e(g_p,g_p)^{dsz}}\\
-			&=\frac{1}{e(g_p,g_p)^{sz(\omega -d)}e(g_p,g_p)^{dsz}}\\
-			&=\frac{1}{e(g_p,g_p)^{sz\omega}}
-	\end{split}
-\end{equation}
-At last, outsourced server sets $T_1 = \widehat{C}$ and transfers $CT'=\left( T_1, X \right)$ to DataUser.
+	\item Transform$_{out}$(CT,TK,PK):
+		\begin{itemize}
+			\item [$\bullet$] Testing:
+				In this process, outsourced server runs the following defined functions. 
+				If the node is a \textit{LPNode}, it will execute \textit{PreDecNode($\alpha$)}. 
+				Similarly, if the node is a normal node, it will execute \textit{PreDecNode($\beta$)} where $u$ is the number of child of node $\beta$ and $h$ is the threshold value of node $\beta$.
+				\begin{equation}\label{PreDecNodeA}
+					PreDecNode(\alpha)=\prod_{i=1}^{k}e(C_{i,t_i},D_i^*)
+				\end{equation}
+				PreDecNode($\beta$)
+				\begin{equation}\label{PreDecNodeB}
+					=
+					\begin{cases}
+					% \prod_{i=1}^{h}PreDecNode(Child(\beta,i))^{\prod_{j=1,j\neq i}^{h}\frac{i}{j-i}}, &Option(\beta)=Threshold\\
+					\prod_{i=1}^{h}PreDecNode(Child(\beta,i))^{\Delta_{i,\beta}(0)}, &Option(\beta)=Threshold\\
+					\prod_{i=1}^{u}PreDecNode(Child(\beta,i)), &Option(\beta)=AND\\
+					PreDecNode(Child(\beta,i)), &Option(\beta)=OR
+					\end{cases}
+				\end{equation}
+				Evidently $\theta_\alpha$ will be a random value, if the \textit{LPNode} cannot satisfy attributes. 
+				When $\theta_\alpha$ is a random value, it indicates this \textit{LPNode} is an error node. 
+				Hence, there is no necessary to participate in the subsequent decryption phase. 
+				
+				The outsourced server calculates $\theta_\alpha=\frac{H_\alpha^*}{e(\bar{C}_\alpha,\bar{D_0}^*)PreDecNode(\alpha)}$. 
+				If the \textit{LPNode} satisfies the attributes represented by each leaf node under it, then it can obtain $PreDecNode(\alpha)=e(g_p,g_p)^{zds_\alpha}$. Further, the outsourced server performs the following calculations:
+				\begin{equation}
+					\begin{split}
+						\theta_\alpha &=\frac{H_\alpha^*}{e(\bar{C}_\alpha,\bar{D_0}^*)PreDecNode(\alpha)}\\
+									&=\frac{\bar{Y}^{zs_\alpha}}{e(A_0^{s_\alpha}R_\alpha,g_p^{z(\bar{\omega}-d)})e(g_p,g_p)^{zds_\alpha}}\\
+									%   &=\frac{e(g_p,g_p)^{\bar{\omega}zs_\alpha}}{e(g_p^{s_\alpha},g_p^{z(\bar{\omega}-d)})e(g_p,g_p)^{zds_\alpha}}\\
+									%   &=\frac{e(g_p,g_p)^{\bar{\omega}zs_\alpha}}{e(g_p^{s_\alpha},g_p^{z(\bar{\omega}-d)})	e(g_p,g_p)^{zds_\alpha}}\\
+									&=\frac{e(g_p,g_p)^{\bar{\omega}zs_\alpha}}{e(g_p,g_p)^{zs_\alpha (\bar{\omega}-d)} e(g_p,g_p)^{zds_\alpha}}\\
+									&=1
+					\end{split}
+				\end{equation}
+			\item [$\bullet$] PreDecrypt(CT,TK,PK):
+				The next description operation is completed by executing formula(\ref{CT2}) when $\theta_\alpha=1$:
+				\begin{equation}\label{CT2}
+					\begin{split}
+						X   &=\frac{1}{e(C_0,D_0^*)PreDecNode(root(T))}\\
+							&=\frac{1}{e(g_p^sR_0^sR'_0,g_p^{z(\omega-d)})e(g_p,g_p)^{dsz}}\\
+							% &=\frac{1}{e(g_p^s,g_p^{z(\omega-d)})e(g_p,g_p)^{dsz}}\\
+							&=\frac{1}{e(g_p,g_p)^{sz(\omega -d)}e(g_p,g_p)^{dsz}}\\
+							&=\frac{1}{e(g_p,g_p)^{sz\omega}}
+					\end{split}
+				\end{equation}
+				At last, outsourced server sets $T_1 = \widehat{C}$ and transfers $CT'=\left( T_1, X \right)$ to DataUser.
+		\end{itemize}
+
 	\item Decrypt(CT',SK,CT): DataUser receives $CT'$ sent by outsourced server and use $SK$ to decrypt ciphertext. The decryption process is described as formula(\ref{Decrypt}):
 	\begin{equation}\label{Decrypt}
 		\begin{split}
@@ -532,9 +539,13 @@ The security of our scheme depends on three hypotheses which are mentioned in se
 In this section, we reveal the performance of our scheme and it is divided into two sections theoretical analysis and experimental simulation. 
 In the former, we mainly adopt mathematical methods to analyze the efficiency of our scheme and the length of ciphertext, and compare it with other schemes. 
 In order to verify the correctness of the theoretical analysis scheme, we conducted a simulation experiment in the latter. 
-\subsection{Theoretical Analysis}
 
-Firstly, let us present the notations appearing in the following. $N$ expresses the number of attributes in the whole system. $T_{\mathbb{G}},T_{\mathbb{G}_T}$ indicate the cost time of operations of group $\mathbb{G}$ and group $\mathbb{G}_T$. Note that the operations only include exponentiation for convenience. $|*|$ is the bit-length of $*$. 
+\subsection{Theoretical Analysis}
+Firstly, let us present the notations appearing in the following. 
+$N$ expresses the number of attributes in the whole system. 
+$T_{\mathbb{G}},T_{\mathbb{G}_T}$ indicate the cost time of operations of group $\mathbb{G}$ and group $\mathbb{G}_T$. 
+Note that the operations only include exponentiation for convenience. 
+$|*|$ is the bit-length of $*$. 
 
 % a new paragraph
 Table\ref{propertyTable} indicates the properties between our scheme and other related scheme. 
@@ -547,18 +558,16 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 	\caption{PROPERTY COMPARISON TABLE}
 	\resizebox{\textwidth}{12mm}
 	{
-		\begin{tabular}{ccccccc}
-		% \toprule[1.5pt]
-		\toprule
-		\textbf{Scheme} & \textbf{Access Structure} & \textbf{Hidden Policy} & \textbf{Testing} & \textbf{Outsourcing} & \textbf{Verification} &\textbf{Security Model} \\  \hline%用&来分隔单元格的内容 \\表示进入下一行
-		\midrule %画一个横线，下面的就都是一样了，这里一共有4行内容
-		Nishide & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & selectively-CCA \\
-		Lai     & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & adaptively-CCA  \\
-		Luan    & Tree 		& $\times$   & $\times$   & $\times$   & $\times$   & selectively-CPA \\
-		Li		& AND-gates & \checkmark & \checkmark & $\times$   & $\times$   & selectively-CPA \\
-		Xu		& Tree		& \checkmark & $\times$   & $\times$   & $\times$   & selectively-CPA \\	
-		Ours    & Tree 		& \checkmark & \checkmark & \checkmark & \checkmark & adaptively-CCA  \\
-		\bottomrule
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Scheme} & \textbf{Access Structure} & \textbf{Hidden Policy} & \textbf{Testing} & \textbf{Outsourcing} & \textbf{Verification} &\textbf{Security Model} \\
+		\hline 
+		Nishide & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & selectively-CCA \\ \hline
+		Lai     & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & adaptively-CCA  \\ \hline
+		Luan    & Tree 		& $\times$   & $\times$   & $\times$   & $\times$   & selectively-CPA \\ \hline
+		Li		& AND-gates & \checkmark & \checkmark & $\times$   & $\times$   & selectively-CPA \\ \hline
+		Xu		& Tree		& \checkmark & $\times$   & $\times$   & $\times$   & selectively-CPA \\ \hline	
+		Ours    & Tree 		& \checkmark & \checkmark & \checkmark & \checkmark & adaptively-CCA  \\ \hline
 		\end{tabular}
 	}
 	\label{propertyTable}
@@ -569,15 +578,14 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 	\caption{Storage of Different Schemes}
 	\resizebox{\textwidth}{10mm}
 	{
-		\begin{tabular}{cccc}
-			\toprule
-			\textbf{Scheme} & \textbf{Public Key} & \textbf{Secret Key} & \textbf{Ciphertext} \\ \hline
-			\midrule
-			Nishide & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$ & $(3n+1)|\mathbb{G}|$ & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$  \\
-			Lai & $(N+2)|\mathbb{G}|+|\mathbb{G}_T|$ & $(n+1)|\mathbb{G}|$ & $(N+1)|\mathbb{G}|+|\mathbb{G}_T|$ \\
-			% Nishide & a & a & a  \\
-			Our & $2|\mathbb{G}_T|+(N+4)|\mathbb{G}|$ & $(2+k)|\mathbb{G}|$ & $(2+|\alpha|+|\alpha|N)|\mathbb{G}|+(1+|\alpha|)|\mathbb{G}_T|$  \\
-		\bottomrule
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Scheme} & \textbf{Public Key} & \textbf{Secret Key} & \textbf{Ciphertext} \\ 
+			\hline
+			Nishide & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$ & $(3n+1)|\mathbb{G}|$ & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$  \\ \hline
+			Lai & $(N+2)|\mathbb{G}|+|\mathbb{G}_T|$ & $(n+1)|\mathbb{G}|$ & $(N+1)|\mathbb{G}|+|\mathbb{G}_T|$ \\ \hline
+			% Nishide & a & a & a  \\ 
+			Our & $2|\mathbb{G}_T|+(N+4)|\mathbb{G}|$ & $(2+k)|\mathbb{G}|$ & $(2+|\alpha|+|\alpha|N)|\mathbb{G}|+(1+|\alpha|)|\mathbb{G}_T|$  \\ \hline
 		\end{tabular}
 	}
 	\label{storageTable}
@@ -585,16 +593,40 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 
 
 % table3
-% \begin{table}
-% 	\caption{Efficient of Different Schemes}
-% 	\resizebox{\textwidth}{10mm}
-% 	{
-% 		\begin{tabular}{cccc}
-% 			\textbf{Scheme} & \textbf{Encryption Time} & \textbf{Decryption Time} & \textbf{} &
-			
-% 		\end{tabular}
-% 	}
-% \end{table}
+\begin{table}
+	\centering
+	\caption{Efficient of Different Schemes}
+	\resizebox{\textwidth}{10mm}
+	{
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline  
+			\multirow{3}{*}{Scheme} & \multirow{3}{*}{Encryption} & \multicolumn{3}{c|}{Decryption} \\			
+		\cline{3-5}          &       & \multicolumn{2}{c|}{Transform$_{out}$} & \multirow{2}{*}{LocalDec} \\
+		\cline{3-4}          &       & Testing & PreDec &  \\
+		\hline
+		Nishide     &$(2N+1)\mathbb{G}+\mathbb{G}_T$     & $-$     & $-$     & $(3n+1)P+(3n+1)\mathbb{G}_T$ \\
+		\hline
+		Lai     & $(2N+2)\mathbb{G}+\mathbb{G}_T$     & $-$     & $-$     & $(n+1)P+(n+3)\mathbb{G}_T$ \\
+		\hline
+		Xu      & a &  $-$  & $-$ & $(k+1)P+(k+1)\mathbb{G}_T$ \\
+		\hline 
+		Our     & $(2N+5)\mathbb{G}+2\mathbb{G}_T$    & $(k|\alpha|+|\alpha|)P+(k|\alpha|+|\alpha|)\mathbb{G}_T$     & $P+\mathbb{G}_T$     & $2\mathbb{G}_T$ \\
+		\hline
+		\end{tabular}
+	}
+	\label{efficiencyTable}
+  \end{table}
+
+
+	  
+
+  
+
+  
+  
+
+
+
 \subsection{Experimental Simulation}
 
 
