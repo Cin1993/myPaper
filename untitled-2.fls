@@ -128,6 +128,9 @@ INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT e:/paper/myPaper/figure.pdf
 INPUT e:/paper/myPaper/figure.pdf
 INPUT e:/paper/myPaper/figure.pdf
+INPUT e:/paper/myPaper/frame.pdf
+INPUT e:/paper/myPaper/frame.pdf
+INPUT e:/paper/myPaper/frame.pdf
 INPUT e:/paper/myPaper/untitled-2.aux
 INPUT c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb

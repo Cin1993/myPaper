@@ -459,6 +459,55 @@ Our scheme is consisted of the following algorithm:
 			\item[a).] If $T_1=\widehat{C}$ holds, let $\textbf{DF}=X^{-\frac{1}{z}}=e(g_p,g_p)^{s \omega}$ and $\textbf{KDF}(\textbf{DK},\ell)=VKEY \parallel \eta$; otherwise, output the terminator $\perp$;
 			\item[b).] If $u^{H(VKEY)}v^{H(\eta)}=\widehat{C}$ holds, it denotes the testing results and outsourced decryption are proper, furthermore, DataUser can calculate a right message $m$; otherwise, output the terminator $\perp$; 
 		\end{itemize}
+	
+	% 应用部分
+	\subsection{Application in cloud computing}
+	In this subsection, we introduce the practical application  of our scheme. 
+	In the cloud computing environment, we apply the solution to the personal health record(PHR) system.
+	The figure\ref{frame} is the system architecture diagram of our scheme. 
+	For the sake of convenience, we will first introduce the components in our PHR system.
+	Our system consists of the following five parts:
+	\begin{itemize}
+		\item PHR Provider: The PHR provider can be considered as input to the entire system. 
+							The PHR provider encrypts its personal health record using a public key and an expressive access policy.
+							The encrypted personal health record is called encrypted data and uploaded to the database for storage.
+		\item Trusted Authority: The credible authority will be divided into two parts, AAS and PKS are part of it, and KGC is another part.
+								 It is worth mentioning that whether AAS, PKS or KGC, they are all trustworthy.
+								 In other words, they are security servers for the whole system.
+							\begin{itemize}
+								\item[$\bullet$] KGC: KGC is an abbreviation for Key Generation Center.
+													  In the system, KGC plays the important role of generating security parameters and public keys.
+													  Meanwhile, KGC sends the public keys to PHR providers and PHR consumers.
+								\item[$\bullet$] AAS and PKS: AAS means attribute authority server and PKS denotes private key server. 
+												 AAS and PKS can be viewed as a tiny parallel system, which is a  collaborative relationship.
+												 AAS authenticates the PHR consumers attributes and then requires PKS to generate the secret key for PHR consumers.
+
+							\end{itemize}
+		\item DB Cluster: DB cluster is a group of database. 
+						  The main task of DB cluster is to store encrypted PHR data.
+						  DB cluster consists of multiple machines for data security and system stability.
+		\item PHR Consumer: PHR consumers play the role of obtaining encrypted PHR data and requesting CSP to decrypt data. 
+		\item CSP: CSP stands for cloud server provider.
+				   Like the Trusted Authority section above, the CSP will be divided into two parts.
+				   The first part is the Testing server and the second part is the PreDec server.
+				   Similarly, testing server and predec server form a parallel system to decrypt ciphertext.
+				   \begin{itemize}
+					   \item[$\bullet$] Testing Server: Testing server runs the testing algorithm to detect whether the PHR consumers' attributes satisfy the access structure required to decrypt the ciphertext.
+					   \item[$\bullet$] PreDec Server: After running the testing algorithm, the PreDec server runs the PreDec algorithm to perform a partial decryption operation, and sends the decrypted result to the PHR consumer.
+				   \end{itemize}
+	\end{itemize}
+
+	
+	% figure: frame
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=4.5in, keepaspectratio]{frame.pdf}
+		\caption{Frame of PHR System}
+		\label{frame}
+	\end{figure}
+
+
+
 \end{itemize}
 
  

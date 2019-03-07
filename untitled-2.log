@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  5 MAR 2019 15:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  7 MAR 2019 21:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -405,43 +405,55 @@ Package pdftex.def Info: figure.pdf  used on input line 307.
 Underfull \vbox (badness 1019) has occurred while \output is active []
 
  [7 <e:/paper/myPaper/figure.pdf>] [8] [9] [10]
+<frame.pdf, id=79, 787.44188pt x 308.65312pt>
+File: frame.pdf Graphic file (type pdf)
+<use frame.pdf>
+Package pdftex.def Info: frame.pdf  used on input line 504.
+(pdftex.def)             Requested size: 325.215pt x 127.47168pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11] [12 <e:/paper/myPaper/frame.pdf>]
 \c@myLemma=\count136
- [11] [12]
-Overfull \hbox (6.79634pt too wide) in paragraph at lines 523--525
+ [13]
+Overfull \hbox (6.79634pt too wide) in paragraph at lines 572--574
 []\OT1/cmr/m/n/10 Given the dis-tri-bu-tions in Assumption3[], $\OML/cmm/m/it/10 D \OT1/cmr/m/n/10 = (\U/msb/m/n/10 G\OML/cmm/m/it/10 ; g[]; g[]X[]; g[]Y[]; Z[]Z[]g[]\OT1/cmr/m/n/10 )$. 
  []
 
-
-Overfull \hbox (28.48543pt too wide) in paragraph at lines 536--537
+[14]
+Overfull \hbox (28.48543pt too wide) in paragraph at lines 585--586
 []\OT1/cmr/m/n/10 If Assumption1[],Assumption2[] and Assumption3[] hold, $\OML/cmm/m/it/10 Game[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 Game[]$
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 559--574
+
+Underfull \hbox (badness 10000) in paragraph at lines 608--623
 [][]
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14] [15] (e:/paper/myPaper/untitled-2.aux)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15] [16] (e:/paper/myPaper/untitled-2.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3781 strings out of 492646
- 52707 string characters out of 6133325
- 123744 words of memory out of 5000000
- 7598 multiletter control sequences out of 15000+600000
+ 3786 strings out of 492646
+ 52797 string characters out of 6133325
+ 125753 words of memory out of 5000000
+ 7603 multiletter control sequences out of 15000+600000
  12619 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,18n,27p,1145b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
  <c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on e:/paper/myPaper/untitled-2.pdf (15 pages, 437724 bytes).
+Output written on e:/paper/myPaper/untitled-2.pdf (16 pages, 573911 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
+ 207 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
