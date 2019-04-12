@@ -73,7 +73,7 @@
 \begin{document}
 
 % \title{An Efficient CP-ABE with Privacy-preserving and Decryption Testing Scheme in Cloud Computing}
-\title{A Verifiable Hidden Tree Structure CP-ABE with Decryption Testing Scheme and its Application in Cloud Computing}
+\title{A Verifiable Hidden Policy CP-ABE with Decryption Testing Scheme and its Application in VANET}
 %\titlerunning{Short form of title}        % if too long for running head
 
 
@@ -110,7 +110,7 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	Based on the above three factors, we propose a verifiable hidden tree structure CP-ABE with decryption testing scheme in this paper.
 	Besides, the scheme is provably secure against adaptively chosen-ciphertext attack. 
 	Finally, we apply our scheme into EMR system established in cloud computing environment.
-\keywords{CP-ABE;hidden policy;verifiable decryption testing;cloud computing}
+\keywords{CP-ABE;hidden policy;verifiable decryption testing}
 \end{abstract}
 
 \section{Introduction}
@@ -125,20 +125,20 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	Thus, it is crucial to encrypt the access structure.
 
 	Here we take the EMR system as an example. 
-	Figure\ref{EMR1} is a simple Electronic Medical Record System structure. 
+	Figure\ref{VANET} is a simple Electronic Medical Record System structure. 
 	For convenience, we simplify EMR system to three parts: data owner(including patients), cloud storage server(CSS), data recipient(including doctor, malicious attacker).
 	The data owner encrypt his EHR via CP-ABE and upload it to CSS. 
 	CSS are deployed in an open environment that anyone can access.
 	Under normal circumstances, a data recipient who has the private key can decrypt ciphertext and obtain EMR transmitted by data owner.
-	For example, both doctorA and doctorB in Figure\ref{EMR1} can normally decrypt the EMR because their private keys satisfy access structure.
+	For example, both doctorA and doctorB in Figure\ref{VANET} can normally decrypt the EMR because their private keys satisfy access structure.
 	In another case, for a malicious attacker, although he can not decrypt the EMR, he is able to get the access structure stored in plaintext and obtain the data owner's information.
-	For instance, in Figure\ref{EMR1}, the malicious may get the sensitive information that patient whose $PID$ is 28496 suffers from diabetes.  
+	For instance, in Figure\ref{VANET}, the malicious may get the sensitive information that patient whose $PID$ is 28496 suffers from diabetes.  
 
 
-	\begin{figure}\label{EMR1}
+	\begin{figure}\label{VANET}
 		\centering
-		\includegraphics[width=3.8in, keepaspectratio]{EMR1.pdf}
-		\caption{EMR Structure}
+		\includegraphics[width=4.6in, keepaspectratio]{VANET.pdf}
+		\caption{VANET Structure}
 	\end{figure}
  
 \subsection{Related Work}
@@ -501,8 +501,8 @@ Our scheme is consisted of the following algorithm:
 	% figure: frame
 	\begin{figure}[htb]
 		\centering
-		\includegraphics[width=4.5in, keepaspectratio]{frame.pdf}
-		\caption{Frame of PHR System}
+		\includegraphics[width=4.5in, keepaspectratio]{layer.pdf}
+		\caption{Frame of VANET System}
 		\label{frame}
 	\end{figure}
 
