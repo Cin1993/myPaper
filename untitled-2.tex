@@ -103,14 +103,13 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 \maketitle
 
 \begin{abstract}
-	Ciphertext policy attribute based encryption(CP-ABE) is widely used in secure data sharing with one-to-many feature and the characteristics of fine-grained access. 
-	However, the basic CP-ABE encryption scheme has the flaws that access structure may leak user privacy.
-	At the same time, excessive bilinear pairing operations in decryption phase are a significant burden for users participating in the system. 
-	Furthermore, the verifiable decryption testing is not explored in CP-ABE.
-	Based on the above three factors, we propose a verifiable hidden tree structure CP-ABE with decryption testing scheme in this paper.
-	Besides, the scheme is provably secure against adaptively chosen-ciphertext attack. 
-	Finally, we apply our scheme into EMR system established in cloud computing environment.
-\keywords{CP-ABE;hidden policy;verifiable decryption testing}
+	As a new kind of cryptographic primitive, attribute-based encryption(ABE) is widely used in various complex scenarios because it has the characteristics of access control while encrypting messages.
+	However, the existing CP-ABE encryption schemes have some inherent defects, such as lack of privacy-preserving and inefficient decryption. 
+	These weak points make them difficult to play a role in scenarios with high real-time and high data confidentiality requirements, for example, vehicle ad hoc network(VANET).
+	Therefore, we proposed A Verifiable Hidden Policy CP-ABE with Decryption Testing Scheme(or VHPDT, for short).
+	It has the following features: hidden policy to privacy-preserving and outsourced decryption testing can verify  the correctness of the decrypted result.
+	Further, we apply it into VANET.
+\keywords{CP-ABE;hidden policy;verifiable decryption testing;VANET}
 \end{abstract}
 
 \section{Introduction}
@@ -137,53 +136,36 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 
 	\begin{figure}\label{VANET}
 		\centering
-		\includegraphics[width=4.6in, keepaspectratio]{VANET.pdf}
+		\includegraphics[width=3.8in, keepaspectratio]{VANET.pdf}
 		\caption{VANET Structure}
 	\end{figure}
  
 \subsection{Related Work}
-	Since Shamir introduced the idea of identity-based encryption(IBE) to address certificate management and update issues in public key cryptography, Sahai and Waters proposed a fuzzy identity-based encryption scheme(Fuzzy IBE) based on IBE. 
-	% In the scheme, the user's identity is used as the public key, and the public key is allowed to be an arbitrary string, such as an email address.
-	% However, IBE can only achieve one-to-one decryption, which means that the owner encrypts the message through the recipient's public key, and the message can only be decrypted by the receiver, which is coarse-grained access control. 
-	In the Fuzzy IBE, the user has multiple identity attributes, and only the decryptor needs to satisfy the threshold $d$ identity features to decrypt correctly. 
-	This is the original Attribute-Based Encryption(ABE) mechanism. 
-	Afterwards there were two kinds of schemes derived from it, key policy attribute based encryption(KP-ABE) and ciphertext policy attribute based encryption(CP-ABE). 
-	Compared to KP-ABE, CP-ABE could be deployed in more schemes and applications for the more flexible. 
-	Therefore, we mainly discuss different CP-ABE schemes in the rest of this paper.
-
-	% a new paragraph
-	Currently, there are three types of access structures that are utilized in proposed CP-ABE schemes, AND gate, tree structure and linear secret sharing scheme(LSSS).
-	[][][][][][][][][][][][][][][][].
-
-	% a new paragraph
-	Different access structures can only improve the expressive ability, and can not solve the problem of the access structure leaking user privacy.
-	In 2008, Nishide et al. proposed a partially hidden CP-ABE scheme to overcome the above problems. 
-	They used AND gate on multi-valued attributes with wildcard access structures and used inner product predicate encryption techniques, and proved that their scheme is selectively secure. 
-	In 2011, Lai et al. improved the Nishide et al. scheme and proposed a fully secure hidden policy scheme with the same access structure used in Nishide et al. 
-	The problem with this approach is that the size of the ciphertext grows with the number of attributes and leads to higher computational costs. 
-	In 2012, Li et al. used dual-system cryptography to achieve a completely secure access structure hiding scheme over a composite order group. 
-	In 2013, Hur proposed an attribute-based encryption scheme for hidden policy of the smart grid. 
-	Under the premise of hiding the access structure, a scheme for implementing arbitrary monotonic expressions is presented. 
-	But the weak points are that the user has a long length of secret key in the scheme, and no security proof is given. 
-	In 2015, Xu et al. proposed a CP-ABE scheme that supports access structure hiding based on the tree access structure, which further improved the expressiveness of the access strategy but efficiency is the bottleneck of the scheme. 
-	In 2015, Yadav et al. gave three states for each attribute in the access structure and calculated its corresponding user secret key and ciphertext to achieve a fully hidden access policy. 
-	However, the scheme only supports "AND" gate, and the expression ability is relatively weak. 
-	In 2016, Phuong et al. proposed a new scheme to overcome the ciphertext size problem in hidden strategies. 
-	However, the cumbersome user private key calculation process and complex encryption and decryption operations limit its application.
-
-	% a new paragraph
-	For most CP-ABE schemes, complex pairing operations result in low efficiency, further, it limits the practical application of these schemes.
-	Green et al. firstly introduced the notion of ABE with outsourced decryption to solve the issue of low efficiency. 
-	Afterwards, Lai et.al optimized Green's scheme and added verification function to guarantee the correctness of the transformation done by the cloud server.
-	It perfectly settles the issues including low efficiency and correctness of transformation ciphertext, while there are parallel instances in the encryption and decryption algorithms, it can increase communication overhead.
-	Lin et al. used key derivation function(KDF) and random function techniques to successfully reduce excessive communication overhead.
+	Sahai and Waters proposed the concept of fuzzy Identify-Based-Encryption(IBE) initially, which was the prototype of ABE.
+	Later, based on IBE, KP-ABE and CP-ABE as the variants of ABE were proposed.
+	This paper focuses on the three aspects of CP-ABE: hidden policy, verifiable outsourcing schemes and applications in VANET.
+	To realize the function of CP-ABE privacy protection, in 2008, Nishide et al. proposed a partially hidden CP-ABE scheme.
+	They used AND gate on multi-valued attributes with wild-card access structures and used inner product predicate encryption techniques to hide the information of access structure.
+	Later, Lai et al. improved the Nishide et al. scheme and proposed a fully secure hidden policy scheme with the same access structure used in Nishide's scheme.
+	The problem with this scheme is that the size of the ciphertext grows with the number of attributes which leads to higher computational costs. 
+	Li et al. used dual-system cryptography to achieve a completely secure access structure hiding scheme over a composite order group.
+	Hur proposed an attribute-based encryption scheme for hidden policy supporting arbitrary monotonic expressions and applied it into smart grid field.
+	But the weak points are that the user has a long length of secret key in the scheme, and no security proof is given in paper.
+	Xu et al. proposed a CP-ABE scheme that supports access structure hiding based on the tree access structure, which further improved the expressiveness of the access strategy but efficiency is the bottleneck of the scheme.
+	In 2016, Phuong et al. proposed a new scheme to overcome the ciphertext size problem in hidden strategies. However, the cumbersome user private key calculation process and complex encryption and decryption operations limit its application.
 	
 
 	% a new paragraph
-	Through the CP-ABE encryption scheme mentioned above, we can find that although they all have the identical function of hidden policy, there is a problem that cannot be neglected in terms of efficiency. 
-	The efficiency of scheme is a key points we have to consider when scheme is applied in actual scene. 
-	Moreover, most of the schemes use the access structure with AND gate, which cannot indicate threshold value, and the expression ability is lower compared with the LSSS and the tree-based structure. 
-	Finally, as mentioned above, due to the limitation of efficiency, most of the solutions do not propose a reasonable application scenario.
+	In order to solve the issue of low decryption efficiency, Green et al. firstly introduced the notion of ABE with outsourced decryption.
+	Afterwards, Lai et.al optimized Green’s scheme and added verification function to guarantee the correctness of the transformation done by the cloud server.
+	It perfectly settles the issues including low efficiency and correctness of transformation ciphertext, while there are parallel instances in the encryption and decryption algorithms, it can increase communication overhead.
+	Lin et al. used key derivation function(KDF) and random function techniques to successfully reduce excessive communication overhead.
+
+
+	% a new paragraph
+	Consider the practical applications of CP-ABE in VANET. 
+	Huang et al. were the first to introduce CP-ABE into VANET, and some other schemes haver been proposed since then.
+	But how to ensure that messages are disseminated in VANET in an efficient, flexible and secure manner is still a challenge.  
 
 \subsection{Our Contribution}
 	User privacy-preserving and the efficiency of the solution prompt us to propose a new CP-ABE solution. %called CP-ABE-HPT. 
