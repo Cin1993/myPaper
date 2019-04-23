@@ -113,33 +113,49 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 \end{abstract}
 
 \section{Introduction}
-	In the era of data explosion, with the tremendous improvement of cloud computing infrastructures, cloud computing platforms have given users a better and more convenient way to share data and store data.
-	%Users can store and retrieve their own data on the cloud platform and also easily share data with other users on the cloud platform. 
-	However, since the user stores the data on the cloud platform and the data is out of the user's control, it will bring out many severe issues.
-	One of the most obvious problem is if malicious users attack cloud server and obtain the data belonging to normal users, the user's privacy will be leaked and even causes incalculable losses. 
-	Therefore, how to ensure the privacy of users and the security of cloud data sharing has become an urgent problem to be solved. 
-	ABE as a novel encryption notation, not only provides access control but also provides the function of encrypting data, consequently, it is regarded as a promising method to handle this matter. 
-	Although attribute-based encryption can solve above problems, it has another hidden danger which is access structure is passed in plaintext during the process of encryption and decryption.
-	Once some malicious attackers steal the access structure stored in clear text, the user's privacy will also be revealed. 
-	Thus, it is crucial to encrypt the access structure.
+	With the rapid development of cloud computing and the Internet of Things, more and more people are willing to use cloud platform as a medium for data transmission and sharing.
+	Meanwhile, innumerable applications are established to satisfy and facilitate life needs of human beings.
+	However, the premise of all this is that the cloud computing platform can provide a secure, trusted environment.
+	Not only can it provide fine-grained access control service for users, it also ensures the privacy of users.
 
-	Here we take the EMR system as an example. 
-	Figure\ref{VANET} is a simple Electronic Medical Record System structure. 
-	For convenience, we simplify EMR system to three parts: data owner(including patients), cloud storage server(CSS), data recipient(including doctor, malicious attacker).
-	The data owner encrypt his EHR via CP-ABE and upload it to CSS. 
-	CSS are deployed in an open environment that anyone can access.
-	Under normal circumstances, a data recipient who has the private key can decrypt ciphertext and obtain EMR transmitted by data owner.
-	For example, both doctorA and doctorB in Figure\ref{VANET} can normally decrypt the EMR because their private keys satisfy access structure.
-	In another case, for a malicious attacker, although he can not decrypt the EMR, he is able to get the access structure stored in plaintext and obtain the data owner's information.
-	For instance, in Figure\ref{VANET}, the malicious may get the sensitive information that patient whose $PID$ is 28496 suffers from diabetes.  
 
+	Since attribute-based encryption (ABE) has the characteristics of one-to-many encryption and fine-grained access control, the traditional solution to the above situation is ABE.
+	Specifically, there are usually three entities in an ABE scheme, the data owner, the data consumer and the authority. 
+	Authority generates the public key, the master secret key and the private key.
+	Data owner utilizes the public key to encrypt data along with the attributes.
+	Data user can decrypt ciphertext with secret key, and the data decryption is possible if and only if at least d component of the attributes in the encrypted data match with attributes in secret key.
+
+
+	Despite the ABE scheme seems feasible, there are still some meticulous and in-depth questions we need to consider.
+	Fig. \ref{VANET} shows a typical VANET system architecture.
+	For a VANET system, it can be divided into three parts: \textbf{OBU} (On-Board Unit), \textbf{RSU} (Road Side Unit) and \textbf{CSP} (Cloud Server Provider).
+	\textbf{OBU} is abstracted from vehicle sensor and serves as information transmission node in the system.
+	The \textbf{RSU} is set on both sides of the road to provide services for information transmission in system and \textbf{CSP} is a completely secure and trustworthy cloud server.
+	In Fig. \ref{VANET}, we assume that \textbf{Truck1} will send a message to \textbf{Car3} via \textbf{CSP}.
+	Refer to standard or most ABE schemes, the following steps will be executed.
+	\textbf{Truck1} first encrypts the data to generate ciphertext that will be sent to \textbf{CSP} along with the access structure.
+	Due to the inherent defects of ABE, it is worth nothing that the access structure here exists in plaintext.
+	The \textbf{CSP} then transmits the ciphertext to the recipient \textbf{Car3}. 
+	After receiving the ciphertext, \textbf{Car3} decrypts the ciphertext with its own private key.
+	The above steps are normal, but we consider the following situation.
+	If the ciphertext is intercepted by a malicious attacker during transmission, although the malicious attacker cannot read the specific information of the ciphertext, he may obtain some sensitive information through the access structure transmitted in plaintext format.
+	For example, in Fig. \ref{VANET}, the malicious attacker may get the information that is sent to \textbf{Alice} and her license plate is \textbf{Z08C06}.
+	This is information disclosure obviously.
+	It is unacceptable to users because it can lead to unpredictable consequences such as tracking, telecom fraud and so on. 
 
 	\begin{figure}\label{VANET}
 		\centering
 		\includegraphics[width=3.8in, keepaspectratio]{VANET.pdf}
 		\caption{VANET Structure}
 	\end{figure}
- 
+
+
+\subsection{Our Contribution}
+	In this paper, we build a verifiable hidden policy CP-ABE with decryption testing scheme (or VHPDT, for short), which is an extension of the typical ABE scheme with a tree-based access structure, so as to achieve secure, efficient, flexible and fine-grained access control.
+	If VHPDT is applied to VANET, privacy-presenting widehat exist on all message transmission paths, and after our optimization, decryption will be more efficient compared to existing schemes, giving the user a friendly experience.
+
+	
+
 \subsection{Related Work}
 	Sahai and Waters proposed the concept of fuzzy Identify-Based-Encryption(IBE) initially, which was the prototype of ABE.
 	Later, based on IBE, KP-ABE and CP-ABE as the variants of ABE were proposed.
@@ -167,14 +183,7 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	Huang et al. were the first to introduce CP-ABE into VANET, and some other schemes haver been proposed since then.
 	But how to ensure that messages are disseminated in VANET in an efficient, flexible and secure manner is still a challenge.  
 
-\subsection{Our Contribution}
-	User privacy-preserving and the efficiency of the solution prompt us to propose a new CP-ABE solution. %called CP-ABE-HPT. 
-	In order to balance expression ability of access structure, we adopted a tree-based access structure in terms of policy hiding. 
-	For the computational complexity of the pairing operation, we make reasonable use of the advantages of cloud computing, outsourcing the decryption operation to the cloud computing server with stronger computing performance, so as to reduce the user's local calculation. 
-	In addition, during the outsourcing calculation phase, we added an additional testing step (see the implementation section for details) to further reduce the amount of calculation. 
-	As numerous previous schemes, we also provide the proof which indicates the scheme meets Chosen Ciphertext Attack(CCA) security of the security of our scheme. 
-	Further, we depicted an EMR system architecture and smoothly embedded our solution in it. 
-	Ultimately, we demonstrate the efficiency of our scheme from both theoretical analysis and simulation experiments.
+
 
 \subsection{Organization}
 	The remainder of this article consists of the followings. 
