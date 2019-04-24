@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  23 APR 2019 16:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  24 APR 2019 09:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -383,17 +383,24 @@ Package pdftex.def Info: VANET.pdf  used on input line 152.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Overfull \hbox (8.3618pt too wide) in paragraph at lines 168--180
+Overfull \hbox (4.22173pt too wide) in paragraph at lines 163--165
+\OT1/cmr/m/n/10 in-clud-ing the hid-den pol-icy which ex-ists in plain-text in mostly ABE schemes.
+ []
+
+
+Overfull \hbox (8.3618pt too wide) in paragraph at lines 173--185
 \OT1/cmr/m/n/10 Sahai and Wa-ters pro-posed the con-cept of fuzzy Identify-Based-Encryption(IBE)
  []
 
-[3 <e:/paper/myPaper/VANET.pdf>]
 
-LaTeX Warning: Reference `' on page 4 undefined on input line 205.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[4]
+ [3 <e:/paper/myPaper/VANET.pdf>] [4]
 
-LaTeX Warning: Reference `' on page 5 undefined on input line 236.
+LaTeX Warning: Reference `' on page 5 undefined on input line 210.
+
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 241.
 
 \c@myAssumption=\count134
 \c@myDefinition=\count135
@@ -401,34 +408,28 @@ LaTeX Warning: Reference `' on page 5 undefined on input line 236.
 <figure.pdf, id=67, 580.41844pt x 292.84406pt>
 File: figure.pdf Graphic file (type pdf)
 <use figure.pdf>
-Package pdftex.def Info: figure.pdf  used on input line 306.
+Package pdftex.def Info: figure.pdf  used on input line 311.
 (pdftex.def)             Requested size: 310.76122pt x 156.7929pt.
- [7 <e:/paper/myPaper/figure.pdf>] [8] [9] [10]
+ [7] [8 <e:/paper/myPaper/figure.pdf>] [9] [10]
 <layer.pdf, id=90, 389.20406pt x 420.82219pt>
 File: layer.pdf Graphic file (type pdf)
 <use layer.pdf>
-Package pdftex.def Info: layer.pdf  used on input line 503.
+Package pdftex.def Info: layer.pdf  used on input line 496.
 (pdftex.def)             Requested size: 325.215pt x 351.64532pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11]
-Underfull \vbox (badness 5696) has occurred while \output is active []
-
- [12 <e:/paper/myPaper/layer.pdf>]
+ [11] [12 <e:/paper/myPaper/layer.pdf>]
 \c@myLemma=\count136
- [13] [14]
-Overfull \hbox (6.79634pt too wide) in paragraph at lines 571--573
+ [13]
+Overfull \hbox (6.79634pt too wide) in paragraph at lines 564--566
 []\OT1/cmr/m/n/10 Given the dis-tri-bu-tions in Assumption3[], $\OML/cmm/m/it/10 D \OT1/cmr/m/n/10 = (\U/msb/m/n/10 G\OML/cmm/m/it/10 ; g[]; g[]X[]; g[]Y[]; Z[]Z[]g[]\OT1/cmr/m/n/10 )$. 
  []
 
-
-Overfull \hbox (28.48543pt too wide) in paragraph at lines 584--585
+[14]
+Overfull \hbox (28.48543pt too wide) in paragraph at lines 577--578
 []\OT1/cmr/m/n/10 If Assumption1[],Assumption2[] and Assumption3[] hold, $\OML/cmm/m/it/10 Game[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 Game[]$
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 607--622
+Underfull \hbox (badness 10000) in paragraph at lines 600--615
 [][]
  []
 
@@ -440,13 +441,13 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  3787 strings out of 492646
  52808 string characters out of 6133325
- 122754 words of memory out of 5000000
+ 122755 words of memory out of 5000000
  7603 multiletter control sequences out of 15000+600000
  12619 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,18n,27p,1145b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,18n,27p,1145b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
  <c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on e:/paper/myPaper/untitled-2.pdf (16 pages, 507822 bytes).
+Output written on e:/paper/myPaper/untitled-2.pdf (16 pages, 507620 bytes).
 PDF statistics:
  198 PDF objects out of 1000 (max. 8388607)
  131 compressed objects within 2 object streams

@@ -159,7 +159,12 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	If VHPDT is applied to VANET, privacy-presenting widehat exist on all message transmission paths, and after our optimization, decryption will be more efficient compared to existing schemes, giving the user a friendly experience.
 	Therefore, the contributions of VHPDT are various aspects.
 	\begin{itemize}
-		\item [1).] sd
+		\item [1)] VHPDT introduces a tree-based access structure which supports more flexible and fine-grained access control than AND gate access structure.
+		\item [2)] All information is encrypted, during the ciphertext transmission process, including the hidden policy which exists in plaintext in mostly ABE schemes.
+					Therefore, it is fully secure during the transmission process.
+		\item [3)] In order to reduce the amount of decryption operations of the OBU, we outsource some time-consuming operations to RSU in the VANET system, because RSU is more computation capable than OBU.
+					Further, to improve the efficient of outsourcing, we partially optimize the outsourcing algorithm, concretely, we add a \textbf{Decryption Testing} algorithm which is used to reduce redundant operations.
+					After \textbf{Decryption Testing} algorithm, OBU can verify the correctness of the results.
 	\end{itemize}
 
 	
@@ -460,41 +465,29 @@ Our scheme is consisted of the following algorithm:
 		\end{itemize}
 	
 	% 应用部分
-	\subsection{Application in cloud computing}
-	In this subsection, we introduce the practical application  of our scheme. 
-	In the cloud computing environment, we apply the solution to the personal health record(PHR) system.
-	The figure\ref{frame} is the system architecture diagram of our scheme. 
-	For the sake of convenience, we will first introduce the components in our PHR system.
-	Our system consists of the following five parts:
+	\subsection{Application in VANET}
+	In this section, we introduce the practical application of our scheme in VANET.
+	Based on above idea, we construct an efficient privacy-preserving message transmission system named EPPMT system.
+	Fig. \ref{frame} illustrates the architecture of EPPMT system and it consists of the following components: 
 	\begin{itemize}
-		\item PHR Provider: The PHR provider can be considered as input to the entire system. 
-							The PHR provider encrypts its personal health record using a public key and an expressive access policy.
-							The encrypted personal health record is called encrypted data and uploaded to the database for storage.
-		\item Trusted Authority: The credible authority will be divided into two parts, AAS and PKS are part of it, and KGC is another part.
-								 It is worth mentioning that whether AAS, PKS or KGC, they are all trustworthy.
-								 In other words, they are security servers for the whole system.
-							\begin{itemize}
-								\item[$\bullet$] KGC: KGC is an abbreviation for Key Generation Center.
-													  In the system, KGC plays the important role of generating security parameters and public keys.
-													  Meanwhile, KGC sends the public keys to PHR providers and PHR consumers.
-								\item[$\bullet$] AAS and PKS: AAS means attribute authority server and PKS denotes private key server. 
-												 AAS and PKS can be viewed as a tiny parallel system, which is a  collaborative relationship.
-												 AAS authenticates the PHR consumers attributes and then requires PKS to generate the secret key for PHR consumers.
-
-							\end{itemize}
-		\item DB Cluster: DB cluster is a group of database. 
-						  The main task of DB cluster is to store encrypted PHR data.
-						  DB cluster consists of multiple machines for data security and system stability.
-		\item PHR Consumer: PHR consumers play the role of obtaining encrypted PHR data and requesting CSP to decrypt data. 
-		\item CSP: CSP stands for cloud server provider.
-				   Like the Trusted Authority section above, the CSP will be divided into two parts.
-				   The first part is the Testing server and the second part is the PreDec server.
-				   Similarly, testing server and predec server form a parallel system to decrypt ciphertext.
-				   \begin{itemize}
-					   \item[$\bullet$] Testing Server: Testing server runs the testing algorithm to detect whether the PHR consumers' attributes satisfy the access structure required to decrypt the ciphertext.
-					   \item[$\bullet$] PreDec Server: After running the testing algorithm, the PreDec server runs the PreDec algorithm to perform a partial decryption operation, and sends the decrypted result to the PHR consumer.
-				   \end{itemize}
+		\item Vehicle Cluster: Vehicle cluster consists of a variety of vehicles participating in VANET system, which can be abstracted into OSUs in VANET system.
+							   It is the producer and consumer of messages in the whole system.
+		\item RSU Cluster: The RSU cluster consists of RSUs, which are mainly for information transmission and serve as partial outsourcing decryption.
+		\item Cloud Servers: Firewall, AAS, DB, KGC and PKS form cloud server environment. The description of each part is as follows:
+		\begin{itemize}
+			\item [$\bullet$] Firewall: The firewall is utilized to isolate the cloud environment from the external network. 
+										It provides a secure domain for other servers in cloud environment.
+			\item [$\bullet$] PKS: PKS is a private key server. It generates private key for users according to users' attribute sets.
+			\item [$\bullet$] KGC: KGC represents key generation server. It is used to produce public key and parameters for the whole system.
+			\item [$\bullet$] AAS: AAS is the short for attribute authority server. 
+								   AAS manages attribute sets in system.
+								   When a new attribute is added into system, the AAS is responsible for authoring it.
+								   Only authorized attributes can participate in encryption and decryption operations.
+			\item [$\bullet$] DB:  DB means the data base used to store the information of authorized attributes.
+		\end{itemize}
 	\end{itemize}
+
+	
 
 	
 	% figure: frame
