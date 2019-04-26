@@ -601,14 +601,14 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 	{
 		\begin{tabular}{|c|c|c|c|c|c|c|}
 		\hline
-		\textbf{Scheme} & \textbf{Access Structure} & \textbf{Hidden Policy} & \textbf{Testing} & \textbf{Outsourcing} & \textbf{Verification} &\textbf{Security Model} \\
+		\textbf{Scheme} & \textbf{Access Structure} & \textbf{Hidden Policy} & \textbf{Testing} & \textbf{Outsourcing} & \textbf{Verification} \\
 		\hline 
-		Nishide & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & selectively-CCA \\ \hline
-		Lai     & AND-gates & \checkmark & $\times$   & $\times$   & $\times$   & adaptively-CCA  \\ \hline
-		Luan    & Tree 		& $\times$   & $\times$   & $\times$   & $\times$   & selectively-CPA \\ \hline
-		Li		& AND-gates & \checkmark & \checkmark & $\times$   & $\times$   & selectively-CPA \\ \hline
-		Xu		& Tree		& \checkmark & $\times$   & $\times$   & $\times$   & selectively-CPA \\ \hline	
-		Ours    & Tree 		& \checkmark & \checkmark & \checkmark & \checkmark & adaptively-CCA  \\ \hline
+		Nishide & AND-gates & \checkmark & $\times$   & $\times$   & $\times$    \\ \hline
+		Lai     & AND-gates & \checkmark & $\times$   & $\times$   & $\times$    \\ \hline
+		Luan    & Tree 		& $\times$   & $\times$   & $\times$   & $\times$    \\ \hline
+		Li		& AND-gates & \checkmark & \checkmark & $\times$   & $\times$    \\ \hline
+		Xu		& Tree		& \checkmark & $\times$   & $\times$   & $\times$    \\ \hline	
+		Ours    & Tree 		& \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
 		\end{tabular}
 	}
 	\label{propertyTable}
@@ -623,9 +623,13 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 			\hline
 			\textbf{Scheme} & \textbf{Public Key} & \textbf{Secret Key} & \textbf{Ciphertext} \\ 
 			\hline
-			Nishide & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$ & $(3n+1)|\mathbb{G}|$ & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$  \\ \hline
-			Lai & $(N+2)|\mathbb{G}|+|\mathbb{G}_T|$ & $(n+1)|\mathbb{G}|$ & $(N+1)|\mathbb{G}|+|\mathbb{G}_T|$ \\ \hline
-			% Nishide & a & a & a  \\ 
+			% Nishide & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$ & $(3n+1)|\mathbb{G}|$ & $|\mathbb{G}_T|+(2N+1)|\mathbb{G}|$  \\ \hline
+			% Lai & $(N+2)|\mathbb{G}|+|\mathbb{G}_T|$ & $(n+1)|\mathbb{G}|$ & $(N+1)|\mathbb{G}|+|\mathbb{G}_T|$ \\ \hline
+			% Nishide & a & a & a  \\ \hline
+			Hur & $2|\mathbb{G}|+|\mathbb{G}_T|$ & $(3k+1)|\mathbb{G}|$ & $(2t+1)|\mathbb{G}|+2\mathbb{G}_T$  \\ \hline
+			Helil & $3|\mathbb{G}|+ |\mathbb{G}_T|$ & $(3k+1)|\mathbb{G}|$ & $(2t+1)|\mathbb{G}|+2\mathbb{G}_T$  \\ \hline
+			
+			Muller & $2|\mathbb{G}_T|+(N+2)|\mathbb{G}|$ & $(2n+2)|\mathbb{G}|$ & $(N+n)|\mathcal{G}|+2|\mathbb{G}_T|$ \\ \hline   
 			Our & $2|\mathbb{G}_T|+(N+4)|\mathbb{G}|$ & $(2+k)|\mathbb{G}|$ & $(2+|\alpha|+|\alpha|N)|\mathbb{G}|+(1+|\alpha|)|\mathbb{G}_T|$  \\ \hline
 		\end{tabular}
 	}
@@ -645,16 +649,15 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 		\cline{3-5}          &       & \multicolumn{2}{c|}{Transform$_{out}$} & \multirow{2}{*}{LocalDec} \\
 		\cline{3-4}          &       & Testing & PreDec &  \\
 		\hline
-		Nishide     &$(2N+1)\mathbb{G}+\mathbb{G}_T$     & $-$     & $-$     & $(3n+1)P+(3n+1)\mathbb{G}_T$ \\
-		\hline
-		Lai     & $(2N+2)\mathbb{G}+\mathbb{G}_T$     & $-$     & $-$     & $(n+1)P+(n+3)\mathbb{G}_T$ \\
-		\hline
-		% Xu      & a &  $-$  & $-$ & $(k+1)P+(k+1)\mathbb{G}_T$ \\
-		% \hline 
-		LiJiGuo      & $(N+n)\mathbb{G}+\mathbb{G}_T$ &  $\mathbb{G}_T+2P+2(n-1)\mathbb{G}$  & $-$ & $(2n+1)P+(2n+1)\mathbb{G}_T$ \\
-		\hline
-		Our     & $(2N+5)\mathbb{G}+2\mathbb{G}_T$    & $(k|\alpha|+|\alpha|)P+(k|\alpha|+|\alpha|)\mathbb{G}_T$     & $P+\mathbb{G}_T$     & $2\mathbb{G}_T$ \\
-		\hline
+		% Nishide     &$(2N+1)\mathbb{G}+\mathbb{G}_T$     & $-$     & $-$     & $(3n+1)P+(3n+1)\mathbb{G}_T$ \\ \hline
+		% Lai     & $(2N+2)\mathbb{G}+\mathbb{G}_T$     & $-$     & $-$     & $(n+1)P+(n+3)\mathbb{G}_T$ \\ \hline
+		% Xu      & a &  $-$  & $-$ & $(k+1)P+(k+1)\mathbb{G}_T$ \\ \hline 
+		% LiJiGuo      & $(N+n)\mathbb{G}+\mathbb{G}_T$ &  $\mathbb{G}_T+2P+2(n-1)\mathbb{G}$  & $-$ & $(2n+1)P+(2n+1)\mathbb{G}_T$ \\ \hline
+		% Xu      &  &  &  & \\ \hline
+		Hur     &$(3t+3)\mathbb{G}+(t+1)P$     & $-$     & $(2|R|+1)P+\mathbb{G}_T$     & $P+3\mathbb{G}_T$ \\ \hline
+		Helil     &$(3t+4)\mathbb{G}+(t+2)P$     & $-$     & $(2|R|+1)P+\mathbb{G}_T$     & $P+3\mathbb{G}_T$ \\ \hline
+		Muller  &  $(N+n)\mathbb{G} + 2\mathbb{G}_T$ & $-$ & $-$ & $(3n+2)P+(3n+2)\mathbb{G}_T$ \\ \hline
+		Our     & $(2N+5)\mathbb{G}+2\mathbb{G}_T$    & $(k|\alpha|+|\alpha|)P+(k|\alpha|+|\alpha|)\mathbb{G}_T$     & $P+\mathbb{G}_T$     & $2\mathbb{G}_T$ \\ \hline
 		\end{tabular}
 	}
 	\label{efficiencyTable}
