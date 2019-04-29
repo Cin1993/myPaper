@@ -28,6 +28,8 @@
 \usepackage{amsmath, amssymb, amsfonts}
 %\usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{caption}
 \usepackage{enumitem}
 \usepackage[misc]{ifsym}
 % \usepackage{tabularx}
@@ -577,19 +579,14 @@ The security of our scheme depends on three hypotheses which are mentioned in se
 	If Assumption\ref{myAssumption1},Assumption\ref{myAssumption2} and Assumption\ref{myAssumption3} hold, $Game_{real}$ and $Game_{finla}$ are indistinguishable, furthermore, $\mathcal{A}$ has a negligible advantage $Adv_{\mathcal{A}}^{Game_{final}}$ in $Game_{final}$, hence, $\mathcal{A}$ have a negligible advantage $Adv_{\mathcal{A}}^{Game_{real}}$ in $Game_{real}$. So, our scheme satisfies security under Chosen Ciphertext Attack(CCA). 
 \end{proof}
 \section{Performance Analysis}\label{section5}
-In this section, we reveal the performance of our scheme and it is divided into two sections theoretical analysis and experimental simulation. 
-In the former, we mainly adopt mathematical methods to analyze the efficiency of our scheme and the length of ciphertext, and compare it with other schemes. 
-In order to verify the correctness of the theoretical analysis scheme, we conducted a simulation experiment in the latter. 
+In this section, we reveal the performance of our scheme and it is divided into three sections functionality comparison, theoretical analysis and experimental simulation. 
+In the first part, we enumerate the similarities and differences between our schemes and the existing related schemes.  
+We mainly adopt mathematical methods to analyze the efficiency of our scheme and the length of ciphertext, and compare it with other schemes in the second part. 
+Last, in order to verify the correctness of the theoretical analysis scheme, we conducted a simulation experiment. 
 
-\subsection{Theoretical Analysis}
-Firstly, let us present the notations appearing in the following. 
-$N$ expresses the number of attributes in the whole system. 
-$T_{\mathbb{G}},T_{\mathbb{G}_T}$ indicate the cost time of operations of group $\mathbb{G}$ and group $\mathbb{G}_T$. 
-Note that the operations only include exponentiation for convenience. 
-$|*|$ is the bit-length of $*$. 
-
+\subsection{Functionality Comparison}
 % a new paragraph
-Table\ref{propertyTable} indicates the properties between our scheme and other related scheme. 
+Table\ref{propertyTable} indicates the property comparisons between our scheme and other related scheme. 
 $\checkmark$ means the scheme satisfies this property, conversely, $\times$ shows the schemes can not match this property. 
 From Table\ref{propertyTable}, we can get the conclusion that compared with other schemes, our scheme not only has more comprehensive features to improve efficient, testing and outsourcing specifically, but also can verify the correctness of results calculated by cloud servers.
 Meanwhile, due to the tree structure, our scheme has more expression ability.  
@@ -614,6 +611,27 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 	}
 	\label{propertyTable}
 \end{table}
+
+
+\subsection{Theoretical Analysis}
+Firstly, let us present the notations appearing in the following. 
+$N$ expresses the total number of all attributes in the whole system.
+$n$ is the number of all attributes in universe.
+$\mathbb{G}$ and $\mathbb{G}_T$ are the groups or operations in groups(exponentiation, multiplication). 
+$P$ is the time cost of a pairing computation.
+$|\mathbb{G}|$ and $|\mathbb{G}_T|$ indicate the length of one element in group $\mathbb{G}$ and $\mathbb{G}_T$ respectively.
+Similarly, $|\alpha|$ expresses the number of LINodes in the access tree.
+$k$ is the number of attributes associated with the private key of a user.
+$t$ expresses the number of attributes associated with the ciphertext.
+
+
+% new paragraph
+
+
+
+
+
+
 
 % table2
 \begin{table}[h]
@@ -676,6 +694,26 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 
 \subsection{Experimental Simulation}
 
+
+\begin{figure}
+	\centering
+	\subfigure[]{
+		\includegraphics[width=0.4\textwidth]{VHPDT_EncryptionTime.pdf}
+		\label{fig.(a)}
+	}
+	\subfigure[]{
+		\includegraphics[width=0.4\textwidth]{VHPDT_DecryptionTime.pdf}
+		\label{fig.(b)}
+	}
+	\caption{Test}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{PrivateKey_Size.pdf}
+	\caption{Size}
+	\label{fig.privateKeySize}
+\end{figure}
 
 \end{document}
 

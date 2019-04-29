@@ -40,6 +40,14 @@ INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT c:/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.cfg
+INPUT c:/texlive/2018/texmf-dist/tex/latex/subfigure/subfigure.cfg
+INPUT c:/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/ifsym/ifsym.sty
@@ -123,7 +131,6 @@ INPUT c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT e:/paper/myPaper/VANET.pdf
 INPUT e:/paper/myPaper/VANET.pdf
 INPUT e:/paper/myPaper/VANET.pdf
-INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT e:/paper/myPaper/figure.pdf
 INPUT e:/paper/myPaper/figure.pdf
@@ -131,6 +138,16 @@ INPUT e:/paper/myPaper/figure.pdf
 INPUT e:/paper/myPaper/layer.pdf
 INPUT e:/paper/myPaper/layer.pdf
 INPUT e:/paper/myPaper/layer.pdf
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT e:/paper/myPaper/VHPDT_EncryptionTime.pdf
+INPUT e:/paper/myPaper/VHPDT_EncryptionTime.pdf
+INPUT e:/paper/myPaper/VHPDT_EncryptionTime.pdf
+INPUT e:/paper/myPaper/VHPDT_DecryptionTime.pdf
+INPUT e:/paper/myPaper/VHPDT_DecryptionTime.pdf
+INPUT e:/paper/myPaper/VHPDT_DecryptionTime.pdf
+INPUT e:/paper/myPaper/PrivateKey_Size.pdf
+INPUT e:/paper/myPaper/PrivateKey_Size.pdf
+INPUT e:/paper/myPaper/PrivateKey_Size.pdf
 INPUT e:/paper/myPaper/untitled-2.aux
 INPUT c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
@@ -155,4 +172,3 @@ INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
-INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
