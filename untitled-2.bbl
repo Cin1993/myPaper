@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{helil2017cp}
+{\sc Helil, N., and Rahman, K.}
+\newblock Cp-abe access control scheme for sensitive data set constraint with
+  hidden access policy and constraint policy.
+\newblock {\em Security and Communication Networks 2017\/} (2017).
+
+\bibitem{hur2013attribute}
+{\sc Hur, J.}
+\newblock Attribute-based secure data sharing with hidden policies in smart
+  grid.
+\newblock {\em IEEE Transactions on Parallel and Distributed Systems 24}, 11
+  (2013), 2171--2180.
+
+\bibitem{muller2011hiding}
+{\sc M{\"u}ller, S., and Katzenbeisser, S.}
+\newblock Hiding the policy in cryptographic access control.
+\newblock In {\em International Workshop on Security and Trust Management\/}
+  (2011), Springer, pp.~90--105.
+
+\end{thebibliography}

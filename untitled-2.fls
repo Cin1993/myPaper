@@ -58,6 +58,8 @@ INPUT c:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT c:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/cite/cite.sty
+INPUT c:/texlive/2018/texmf-dist/tex/latex/cite/cite.sty
 INPUT e:/paper/myPaper/untitled-2.aux
 INPUT e:/paper/myPaper/untitled-2.aux
 OUTPUT e:/paper/myPaper/untitled-2.aux
@@ -148,12 +150,17 @@ INPUT e:/paper/myPaper/VHPDT_DecryptionTime.pdf
 INPUT e:/paper/myPaper/PrivateKey_Size.pdf
 INPUT e:/paper/myPaper/PrivateKey_Size.pdf
 INPUT e:/paper/myPaper/PrivateKey_Size.pdf
+INPUT e:/paper/myPaper/untitled-2.bbl
+INPUT e:/paper/myPaper/untitled-2.bbl
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT c:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT e:/paper/myPaper/untitled-2.aux
 INPUT c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
+INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -170,5 +177,6 @@ INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

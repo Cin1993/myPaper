@@ -35,7 +35,7 @@
 % \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{multirow}
-
+\usepackage{cite}
 %\usepackage{titling}
 %\thanks{}
 %\usepackage{textcomp}
@@ -592,7 +592,7 @@ From Table\ref{propertyTable}, we can get the conclusion that compared with othe
 Meanwhile, due to the tree structure, our scheme has more expression ability.  
 
 % table1
-\begin{table}[h] 
+\begin{table}[htbp] 
 	\caption{PROPERTY COMPARISON TABLE}
 	\resizebox{\textwidth}{12mm}
 	{
@@ -626,15 +626,22 @@ $t$ expresses the number of attributes associated with the ciphertext.
 
 
 % new paragraph
+Considering the impact of different access structures on the existing schemes, for the sake of fairness, we only select the schemes with tree-based access structure in the theoretical analysis and experimental simulation sections.
+In Table \ref{storageTable}, our scheme and the existing similar schemes are compared in terms of the length of public key, secret key and ciphertext.
+Focusing on the size of public key, although our scheme has a higher growth rate than \cite{hur2013attribute} and \cite{helil2017cp}, our scheme has the same growth rate $N+4$ as \cite{muller2011hiding}.
+Turning the perspective to the private key, the length of private key of all aforementioned schemes increases linearly, but the growth rate is different.
+The lowest growth rate $k$ belongs to our scheme, and the growth rates of \cite{helil2017cp}, \cite{hur2013attribute} and \cite{muller2011hiding} are $3k, 3k, 2n$ respectively.
+Finally, in terms of ciphertext length, since we introduce the concept of \textit{LINode}, the ciphertext length is related to the number of \textit{LINodes} and attributes universe.
+When the number of \textit{LINodes} is small, the ciphertext length is also small.
 
-
-
-
-
-
+% new paragraph
+In Table \ref{efficiencyTable}, we compare the efficiency of different schemes, including two main aspects of encryption and decryption.
+At the encryption level, since our scheme introduces \textit{LINode}, the encryption efficiency of our scheme depends on the number of \textit{LINodes} and attributes. 
+Fewer \textit{LINodes} means higher encryption efficiency.
+At the decryption level, \cite{hur2013attribute}, \cite{helil2017cp} and ours are constant, however our solution is more efficient due to without pairing operations.
 
 % table2
-\begin{table}[h]
+\begin{table}[htbp]
 	\caption{Storage of Different Schemes}
 	\resizebox{\textwidth}{10mm}
 	{
@@ -657,7 +664,7 @@ $t$ expresses the number of attributes associated with the ciphertext.
 
 
 % table3
-\begin{table}
+\begin{table}[htbp]
 	\centering
 	\caption{Efficient of Different Schemes}
 	\resizebox{\textwidth}{10mm}
@@ -683,19 +690,39 @@ $t$ expresses the number of attributes associated with the ciphertext.
   \end{table}
 
 
-	  
-
-  
-
-  
-  
-
-
-
 \subsection{Experimental Simulation}
+In order to verify the correctness of the above theoretical analysis, we simulate our scheme and implement the corresponding systems in \cite{hur2013attribute}, \cite{helil2017cp} and \cite{muller2011hiding}.
+All simulation experiments are based on the Java Pairing-Based Cryptography Library (JPBC).
+Meanwhile, for security, all experiments utilize a 160-bit elliptic curve group, which is generated from the super-singular curve $y^2 = x^3 + x$ over a 512-bit finite field.
+Finally, all experiments are executed on a smartphone XiaoMi 6 which equips 1.9-GHz Snapdragon 835 processor with 3 GB random access memory and runs the MIUI operating system (based on Android 9.0).
+
+% a new paragraph
+The experimental results are shown in Fig. \ref{fig.encryptionAndDecryption}.
+Fig. \ref{fig.(a)} illustrates the trend of encryption time as the number of attribute changes.
+From Fig. \ref{fig.(a)} we can find that the encryption time of the four schemes changes almost linearly with the change of attributes.
+When the number of attributes is small, for example 2, the encryption times of \cite{hur2013attribute}, \cite{helil2017cp}, \cite{muller2011hiding} and our schemes are almost the same, respectively, 418 ms, 539.6 ms, 471.2 ms and 652.4 ms.
+When the number of attributes increases from 2 to 20, the encryption time of the four schemes is quite different due to the different growth rates. 
+\cite{muller2011hiding} takes the most time, about 4295.2 ms.
+And the remaining three schemes \cite{hur2013attribute}, \cite{helil2017cp}, ours take 2551.2 ms, 2508 ms, 3308.8 ms.
+Fig. \ref{fig.(b)} shows the relationship between decryption time and the number of attributes.
+From Fig. \ref{fig.(b)}, we can find that only the decryption of \cite{muller2011hiding} increases with the increase of the attribute.
+When the number of attributes is $2-20$, the decryption time increases from 854 ms to 5388.8 ms.
+The decryption time of \cite{hur2013attribute}, \cite{helil2017cp} and our scheme is a horizontal straight line.
+\cite{hur2013attribute} and \cite{helil2017cp} have a similar result about 210 ms.
+And our scheme has the least decryption time around 50 ms.
+
+% a new paragraph
+Furthermore, we also compare the storage overhead of the private key, as shown in \ref{fig.privateKeySize}.
+\cite{muller2011hiding} has the highest storage overhead in four schemes.
+It grows from 2.75 KB to 7.75 KB as the number of of attribute increases from 10 to 30.
+\cite{hur2013attribute} and \cite{helil2017cp} always have similar overhead.
+When the number of attributes is 10, 20 and 30, the storage overhead is 2.375 KB, 4.625 KB, 6.875 KB.
+Regardless of how the number of attributes changes, our schemes always has the smallest private key size.
+Similarly, when the number of attributes is set to 10, 20 and 30, the overhead of our scheme's private key is about 1 KB, 1.75 KB and 2 KB.
+Compared with the most expensive scheme \cite{muller2011hiding}, it only takes about $35.48\%$ of storage.
 
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
 	\subfigure[]{
 		\includegraphics[width=0.4\textwidth]{VHPDT_EncryptionTime.pdf}
@@ -706,6 +733,7 @@ $t$ expresses the number of attributes associated with the ciphertext.
 		\label{fig.(b)}
 	}
 	\caption{Test}
+	\label{fig.encryptionAndDecryption}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -714,6 +742,28 @@ $t$ expresses the number of attributes associated with the ciphertext.
 	\caption{Size}
 	\label{fig.privateKeySize}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% configuration of reference
+\bibliographystyle{acm}
+\bibliography{reference}
+
+
+
 
 \end{document}
 

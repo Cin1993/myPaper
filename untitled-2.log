@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  29 APR 2019 20:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.6.11)  5 MAY 2019 21:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -325,6 +325,10 @@ Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@cntb=\count132
 \multirow@dima=\skip57
 \bigstrutjot=\dimen150
+) (c:/texlive/2018/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
 ) (e:/paper/myPaper/untitled-2.aux)
 \openout1 = `untitled-2.aux'.
 
@@ -502,39 +506,45 @@ Overfull \hbox (26.55034pt too wide) in paragraph at lines 617--626
 \OT1/cmr/m/n/10 tributes in uni-verse. $\U/msb/m/n/10 G$ \OT1/cmr/m/n/10 and $\U/msb/m/n/10 G[]$ \OT1/cmr/m/n/10 are the groups or op-er-a-tions in groups(exponentiation,
  []
 
-<VHPDT_EncryptionTime.pdf, id=112, 421.57521pt x 317.25827pt>
+
+Overfull \hbox (4.50047pt too wide) in paragraph at lines 629--636
+[]\OT1/cmr/m/n/10 Considering the im-pact of dif-fer-ent ac-cess struc-tures on the ex-ist-ing schemes,
+ []
+
+[16] [17]
+<VHPDT_EncryptionTime.pdf, id=123, 421.57521pt x 317.25827pt>
 File: VHPDT_EncryptionTime.pdf Graphic file (type pdf)
 <use VHPDT_EncryptionTime.pdf>
-Package pdftex.def Info: VHPDT_EncryptionTime.pdf  used on input line 703.
+Package pdftex.def Info: VHPDT_EncryptionTime.pdf  used on input line 730.
 (pdftex.def)             Requested size: 135.19794pt x 101.74255pt.
-<VHPDT_DecryptionTime.pdf, id=113, 421.57521pt x 317.25827pt>
+<VHPDT_DecryptionTime.pdf, id=124, 421.57521pt x 317.25827pt>
 File: VHPDT_DecryptionTime.pdf Graphic file (type pdf)
 <use VHPDT_DecryptionTime.pdf>
-Package pdftex.def Info: VHPDT_DecryptionTime.pdf  used on input line 707.
+Package pdftex.def Info: VHPDT_DecryptionTime.pdf  used on input line 734.
 (pdftex.def)             Requested size: 135.19794pt x 101.74255pt.
-<PrivateKey_Size.pdf, id=114, 421.57521pt x 317.25827pt>
+<PrivateKey_Size.pdf, id=125, 421.57521pt x 317.25827pt>
 File: PrivateKey_Size.pdf Graphic file (type pdf)
 <use PrivateKey_Size.pdf>
-Package pdftex.def Info: PrivateKey_Size.pdf  used on input line 713.
+Package pdftex.def Info: PrivateKey_Size.pdf  used on input line 741.
 (pdftex.def)             Requested size: 338.0pt x 254.3685pt.
-[16] [17 <e:/paper/myPaper/VHPDT_EncryptionTime.pdf> <e:/paper/myPaper/VHPDT_DecryptionTime.pdf> <e:/paper/myPaper/PrivateKey_Size.pdf>] (e:/paper/myPaper/untitled-2.aux)
+ (e:/paper/myPaper/untitled-2.bbl) [18 <e:/paper/myPaper/VHPDT_EncryptionTime.pdf> <e:/paper/myPaper/VHPDT_DecryptionTime.pdf>] [19 <e:/paper/myPaper/PrivateKey_Size.pdf>] (e:/paper/myPaper/untitled-2.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5047 strings out of 492646
- 75213 string characters out of 6133325
- 147041 words of memory out of 5000000
- 8848 multiletter control sequences out of 15000+600000
- 12619 words of font info for 48 fonts, out of 8000000 for 9000
+ 5146 strings out of 492646
+ 76523 string characters out of 6133325
+ 142842 words of memory out of 5000000
+ 8939 multiletter control sequences out of 15000+600000
+ 13272 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,18n,39p,1145b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
- <c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on e:/paper/myPaper/untitled-2.pdf (17 pages, 515416 bytes).
+ <c:/Users/ÐÇ/.texlive2018/texmf-var/fonts/pk/ljfour/public/ifsym/ifsym10.480pk><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on e:/paper/myPaper/untitled-2.pdf (19 pages, 548347 bytes).
 PDF statistics:
- 260 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
+ 276 PDF objects out of 1000 (max. 8388607)
+ 201 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
