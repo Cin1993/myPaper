@@ -1,10 +1,27 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{bethencourt2007ciphertext}
+{\sc Bethencourt, J., Sahai, A., and Waters, B.}
+\newblock Ciphertext-policy attribute-based encryption.
+\newblock In {\em 2007 IEEE symposium on security and privacy (SP'07)\/}
+  (2007), IEEE, pp.~321--334.
+
+\bibitem{green2011outsourcing}
+{\sc Green, M., Hohenberger, S., Waters, B., et~al.}
+\newblock Outsourcing the decryption of abe ciphertexts.
+\newblock In {\em USENIX Security Symposium\/} (2011), vol.~2011.
 
 \bibitem{helil2017cp}
 {\sc Helil, N., and Rahman, K.}
 \newblock Cp-abe access control scheme for sensitive data set constraint with
   hidden access policy and constraint policy.
 \newblock {\em Security and Communication Networks 2017\/} (2017).
+
+\bibitem{huang2009aspe}
+{\sc Huang, D., and Verma, M.}
+\newblock Aspe: Attribute-based secure policy enforcement in vehicular ad hoc
+  networks.
+\newblock {\em Ad Hoc Networks 7}, 8 (2009), 1526--1535.
 
 \bibitem{hur2013attribute}
 {\sc Hur, J.}
@@ -13,10 +30,82 @@
 \newblock {\em IEEE Transactions on Parallel and Distributed Systems 24}, 11
   (2013), 2171--2180.
 
+\bibitem{lai2013attribute}
+{\sc Lai, J., Deng, R.~H., Guan, C., and Weng, J.}
+\newblock Attribute-based encryption with verifiable outsourced decryption.
+\newblock {\em IEEE Transactions on information forensics and security 8}, 8
+  (2013), 1343--1354.
+
+\bibitem{lai2011fully}
+{\sc Lai, J., Deng, R.~H., and Li, Y.}
+\newblock Fully secure cipertext-policy hiding cp-abe.
+\newblock In {\em International conference on information security practice and
+  experience\/} (2011), Springer, pp.~24--39.
+
+\bibitem{lewko2010fully}
+{\sc Lewko, A., Okamoto, T., Sahai, A., Takashima, K., and Waters, B.}
+\newblock Fully secure functional encryption: Attribute-based encryption and
+  (hierarchical) inner product encryption.
+\newblock In {\em Annual International Conference on the Theory and
+  Applications of Cryptographic Techniques\/} (2010), Springer, pp.~62--91.
+
+\bibitem{li2012efficient}
+{\sc Li, X., Gu, D., Ren, Y., Ding, N., and Yuan, K.}
+\newblock Efficient ciphertext-policy attribute based encryption with hidden
+  policy.
+\newblock In {\em International Conference on Internet and Distributed
+  Computing Systems\/} (2012), Springer, pp.~146--159.
+
+\bibitem{liu2016semd}
+{\sc Liu, X., Xia, Y., Chen, W., Xiang, Y., Hassan, M.~M., and Alelaiwi, A.}
+\newblock Semd: Secure and efficient message dissemination with policy
+  enforcement in vanet.
+\newblock {\em Journal of Computer and System Sciences 82}, 8 (2016),
+  1316--1328.
+
+\bibitem{ma2017verifiable}
+{\sc Ma, H., Zhang, R., Wan, Z., Lu, Y., and Lin, S.}
+\newblock Verifiable and exculpable outsourced attribute-based encryption for
+  access control in cloud computing.
+\newblock {\em IEEE transactions on dependable and secure computing 14}, 6
+  (2017), 679--692.
+
 \bibitem{muller2011hiding}
 {\sc M{\"u}ller, S., and Katzenbeisser, S.}
 \newblock Hiding the policy in cryptographic access control.
 \newblock In {\em International Workshop on Security and Trust Management\/}
   (2011), Springer, pp.~90--105.
+
+\bibitem{nishide2008attribute}
+{\sc Nishide, T., Yoneyama, K., and Ohta, K.}
+\newblock Attribute-based encryption with partially hidden encryptor-specified
+  access structures.
+\newblock In {\em International conference on applied cryptography and network
+  security\/} (2008), Springer, pp.~111--129.
+
+\bibitem{phuong2016hidden}
+{\sc Phuong, T. V.~X., Yang, G., and Susilo, W.}
+\newblock Hidden ciphertext policy attribute-based encryption under standard
+  assumptions.
+\newblock {\em IEEE transactions on information forensics and security 11}, 1
+  (2016), 35--45.
+
+\bibitem{sahai2005fuzzy}
+{\sc Sahai, A., and Waters, B.}
+\newblock Fuzzy identity-based encryption.
+\newblock In {\em Annual International Conference on the Theory and
+  Applications of Cryptographic Techniques\/} (2005), Springer, pp.~457--473.
+
+\bibitem{song2015}
+{\sc Song, Y., Han, Z., and Liu, F.}
+\newblock Attribute-based encryption with hidden policies in the access tree.
+\newblock {\em Journal on Communications 36}, 9 (2015), 119--126.
+
+\bibitem{xu2013tree}
+{\sc Xu, R., Wang, Y., and Lang, B.}
+\newblock A tree-based cp-abe scheme with hidden policy supporting secure data
+  sharing in cloud computing.
+\newblock In {\em 2013 International Conference on Advanced Cloud and Big
+  Data\/} (2013), IEEE, pp.~51--57.
 
 \end{thebibliography}

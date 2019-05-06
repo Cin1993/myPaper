@@ -118,15 +118,16 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	With the rapid development of cloud computing and the Internet of Things, more and more people are willing to use cloud platform as a medium for data transmission and sharing.
 	Meanwhile, innumerable applications are established to satisfy and facilitate life needs of human beings.
 	However, the premise of all this is that the cloud computing platform can provide a secure, trusted environment.
-	Not only can it provide fine-grained access control service for users, it also ensures the privacy of users.
+	Not only does it need to provide fine-grained access control service for users, it also ensures the privacy of users.
 
-	Since attribute-based encryption (ABE) has the characteristics of one-to-many encryption and fine-grained access control, the traditional solution to the above situation is ABE.
+	Since attribute-based encryption (ABE) has the characteristics of one-to-many encryption and fine-grained access control, the traditional solution to the above situation is ABE ordinarily.
 	Specifically, there are usually three entities in an ABE scheme, the data owner, the data consumer and the authority. 
 	Authority generates the public key, the master secret key and the private key.
 	Data owner utilizes the public key to encrypt data along with the attributes.
-	Data user can decrypt ciphertext with secret key, and the data decryption is possible if and only if at least d component of the attributes in the encrypted data match with attributes in secret key.
+	Data user can decrypt ciphertext with secret key, and the data decryption is possible if and only if at least $d$ component of the attributes in the encrypted data match with attributes in secret key.
 
 	Despite the ABE scheme seems feasible, there are still some meticulous and in-depth questions we need to consider.
+	Let us take VANET as an example for a detailed explanation.
 	Fig. \ref{VANET} shows a typical VANET system architecture.
 	For a VANET system, it can be divided into three parts: \textbf{OBU} (On-Board Unit), \textbf{RSU} (Road Side Unit) and \textbf{CSP} (Cloud Server Provider).
 	\textbf{OBU} is abstracted from vehicle sensor and serves as information transmission node in the system.
@@ -149,53 +150,54 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 	In VANET system, OBU and RSU are mostly resource-limited embedded devices with tiny size, which have poor performance compared to desktops in term of computing.
 	In addition, VANET system is a high real-time system, hence, efficiency is the other decisive factor for VANET system.
 
-	\begin{figure}\label{VANET}
+	\begin{figure}
 		\centering
 		\includegraphics[width=3.8in, keepaspectratio]{VANET.pdf}
 		\caption{VANET Structure}
+		\label{VANET}
 	\end{figure}
 
 
 \subsection{Our Contribution}
 	In this paper, we build a verifiable hidden policy CP-ABE with decryption testing scheme (or VHPDT, for short), which is an extension of the typical ABE scheme with a tree-based access structure, so as to achieve secure, efficient, flexible and fine-grained access control.
-	If VHPDT is applied to VANET, privacy-presenting widehat exist on all message transmission paths, and after our optimization, decryption will be more efficient compared to existing schemes, giving the user a friendly experience.
+	If VHPDT is applied to VANET, privacy-presenting will exist on all message transmission paths, and after our optimization, decryption will be more efficient compared to existing schemes, giving the user a friendly experience.
 	Therefore, the contributions of VHPDT are various aspects.
 	\begin{itemize}
-		\item [1)] VHPDT introduces a tree-based access structure which supports more flexible and fine-grained access control than AND gate access structure.
-		\item [2)] All information is encrypted, during the ciphertext transmission process, including the hidden policy which exists in plaintext in mostly ABE schemes.
-					Therefore, it is fully secure during the transmission process.
+		\item [1)] VHPDT introduces a tree-based access structure which supports more flexible and fine-grained access control than AND-gate access structure.
+		\item [2)] All information is encrypted during the ciphertext transmission process, including the hidden policy which exists in plaintext in mostly ABE schemes.
+				   Therefore, it is fully secure during the messages transmission process.
 		\item [3)] In order to reduce the amount of decryption operations of the OBU, we outsource some time-consuming operations to RSU in the VANET system, because RSU is more computation capable than OBU.
 					Further, to improve the efficient of outsourcing, we partially optimize the outsourcing algorithm, concretely, we add a \textbf{Decryption Testing} algorithm which is used to reduce redundant operations.
-					After \textbf{Decryption Testing} algorithm, OBU can verify the correctness of the results.
+					Meanwhile, after \textbf{Decryption Testing} algorithm, OBU can verify the correctness of the results.
 	\end{itemize}
 
 	
 
 \subsection{Related Work}
-	Sahai and Waters proposed the concept of fuzzy Identify-Based-Encryption(IBE) initially, which was the prototype of ABE.
+	Sahai and Waters proposed the concept of fuzzy Identify-Based-Encryption (IBE) initially \cite{sahai2005fuzzy}, which was the prototype of ABE.
 	Later, based on IBE, KP-ABE and CP-ABE as the variants of ABE were proposed.
-	This paper focuses on the three aspects of CP-ABE: hidden policy, verifiable outsourcing schemes and applications in VANET.
-	To realize the function of CP-ABE privacy protection, in 2008, Nishide et al. proposed a partially hidden CP-ABE scheme.
-	They used AND gate on multi-valued attributes with wild-card access structures and used inner product predicate encryption techniques to hide the information of access structure.
-	Later, Lai et al. improved the Nishide et al. scheme and proposed a fully secure hidden policy scheme with the same access structure used in Nishide's scheme.
+	This paper focuses on the three aspects of CP-ABE \cite{bethencourt2007ciphertext}: hidden policy, verifiable CP-ABE schemes and applications in VANET \cite{huang2009aspe} \cite{liu2016semd}.
+	To realize the function of CP-ABE privacy protection, in 2008, Nishide et al. \cite{nishide2008attribute} proposed a partially hidden CP-ABE scheme.
+	They used AND-gate on multi-valued attributes with wild-card access structures and used inner product predicate encryption techniques \cite{lewko2010fully} to hide the information of access structure.
+	Later, Lai et al. \cite{lai2011fully} improved the Nishide et al. scheme and proposed a fully secure hidden policy scheme with the same access structure used in Nishide's scheme.
 	The problem with this scheme is that the size of the ciphertext grows with the number of attributes which leads to higher computational costs. 
-	Li et al. used dual-system cryptography to achieve a completely secure access structure hiding scheme over a composite order group.
-	Hur proposed an attribute-based encryption scheme for hidden policy supporting arbitrary monotonic expressions and applied it into smart grid field.
-	But the weak points are that the user has a long length of secret key in the scheme, and no security proof is given in paper.
-	Xu et al. proposed a CP-ABE scheme that supports access structure hiding based on the tree access structure, which further improved the expressiveness of the access strategy but efficiency is the bottleneck of the scheme.
-	In 2016, Phuong et al. proposed a new scheme to overcome the ciphertext size problem in hidden strategies. However, the cumbersome user private key calculation process and complex encryption and decryption operations limit its application.
+	Li et al. \cite{li2012efficient} used dual-system cryptography to achieve a completely secure access structure hiding scheme over a composite order group.
+	Hur \cite{hur2013attribute} proposed an attribute-based encryption scheme for hidden policy supporting arbitrary monotonic expressions and applied it into smart grid field.
+	But the weak points are that the user has a long length of secret key in the scheme.
+	Xu et al. \cite{xu2013tree} proposed a CP-ABE scheme that supports access structure hiding based on the tree access structure, which further improved the expressiveness of the access strategy but efficiency is the bottleneck of the scheme.
+	In 2016, Phuong et al. \cite{phuong2016hidden} proposed a new scheme to overcome the ciphertext size problem in hidden strategies. However, the cumbersome user private key calculation process and complex encryption and decryption operations limit its application.
 	
 
 	% a new paragraph
-	In order to solve the issue of low decryption efficiency, Green et al. firstly introduced the notion of ABE with outsourced decryption.
-	Afterwards, Lai et.al optimized Green’s scheme and added verification function to guarantee the correctness of the transformation done by the cloud server.
+	In order to solve the issue of low decryption efficiency, Green et al. \cite{green2011outsourcing} firstly introduced the notion of ABE with outsourced decryption.
+	Afterwards, Lai et.al \cite{lai2013attribute} optimized Green’s scheme and added verification function to guarantee the correctness of the transformation done by the cloud server.
 	It perfectly settles the issues including low efficiency and correctness of transformation ciphertext, while there are parallel instances in the encryption and decryption algorithms, it can increase communication overhead.
-	Lin et al. used key derivation function(KDF) and random function techniques to successfully reduce excessive communication overhead.
+	Ma et al. \cite{ma2017verifiable} used key derivation function(KDF) and random function techniques to successfully reduce excessive communication overhead.
 
 
 	% a new paragraph
 	Consider the practical applications of CP-ABE in VANET. 
-	Huang et al. were the first to introduce CP-ABE into VANET, and some other schemes haver been proposed since then.
+	Huang et al. \cite{huang2009aspe} were the first to introduce CP-ABE into VANET, and some other schemes \cite{liu2016semd} have been proposed since then.
 	But how to ensure that messages are disseminated in VANET in an efficient, flexible and secure manner is still a challenge.  
 
 
@@ -203,13 +205,13 @@ Guangxi Colleges and Universities Key Laboratory of cloud computing and complex 
 \subsection{Organization}
 	The remainder of this article consists of the followings. 
 	In section\ref{section2}, we list some preliminaries that are used in our scheme. 
-	Then, the concrete scheme and an EMR system are entirely demonstrated in section\ref{section3}. 
+	Then, the concrete scheme and a VANET system are entirely demonstrated in section\ref{section3}. 
 	Section\ref{section4} proposes the security proof of our scheme. Finally, in section\ref{section5}, the performance analysis of our scheme is illustrated.
 
 
 \section{Preliminaries}\label{section2}
 \subsection{Access Structure}
-	The same access structure as [\ref{}] we adopt. 
+	The same access structure as \cite{song2015} we adopt. 
 	Let ${P_1,P_2,...,P_n}$ be a set of parties.
 	A collection $\mathbb{A}\subseteq 2^{\{P_1,P_2,...,P_n\}}$ is monotone if $\forall B,C:$ if $B\in \mathbb{A}$ and $B \subseteq C$ then $C \in \mathbb{A}$.
 	An access structure (respectively, monotone access structure) is a collection(respectively, monotone collection) $\mathbb{A}$ of non-empty subsets of $\{P_1,P_2,...,P_n\}$, i.e., $\mathbb{A} \subseteq 2^{\{P_1,P_2,...,P_n\}}\setminus\{\varnothing \}$.
@@ -319,11 +321,11 @@ A novel access structure based on tree structure is presented firstly and then t
 
 	To enhance the expression capability of access structure, we utilize tree structure in our scheme. 
 	Let $\mathcal{T}$ represents a hierarchical tree. 
-	The inner nodes of $\mathcal{T}$ are described the logic relationship of different access policies, including \textit{AND, OR, Threshold}. 
+	The inner nodes of $\mathcal{T}$ are described the logic relationship of different access policies, including \textit{AND, OR} and \textit{of threshold}. 
 	Besides, the leaf nodes of $\mathcal{T}$ represent attribute marked $a_i=v_{i,t_i}(i \in \mathbb{Z}_n,t_i \in \mathbb{Z}_{n_i})$. 
 	For each leaf node, we can always seek its parent node and called it \textit{LPNode} for simplicity. In our tree structure \textit{LPNode} can only express the \textit{AND} relationship.
 	Hence, it is obvious that a kind of attribute value can only appear once under each \textit{LPNode}. 
-	Here is an access tree example in Figure\ref{figure1}.
+	Here is an access tree example in Fig. \ref{figure1}.
 
 \subsection{Our Scheme}
 Our scheme is consisted of the following algorithm:
@@ -506,14 +508,14 @@ Our scheme is consisted of the following algorithm:
 
  
 \section{Security Proof}\label{section4}
-In this section, we will give a proof of security of our scheme. The idea of Lai et.al inspires our thinking and based on dual encryption system invented by Waters et.al we completed our proof. Above all, for convenience, we denote the corresponding definitions used in Water's paper. Both ciphertext and private keys can take on one of two indistinguishable forms the \textit{normal} or the \textit{semi-functional} in dual system encryption system. A \textit{normal} private key or ciphertext are generated from key generation or encryption algorithm. As for semi-functional private key, it can decrypt all normally generated ciphertext. However, decryption will fail if one try to decrypt a semi-functional ciphertext with a semi-functional privacy key. Similarly, semi-functional ciphertext can be decrypted only by normal private key. Note that the semi-functional ciphertext and semi-functional private keys are used in our proof process, and you can't search for them in the actual system.\\
+In this section, we will give a security proof of our scheme. The idea of Lai et.al inspires our thinking and based on dual encryption system invented by Waters et.al we completed our proof. Above all, for convenience, we denote the corresponding definitions used in Water's paper. Both ciphertext and private keys can take on one of two indistinguishable forms the \textit{normal} or the \textit{semi-functional} in dual system encryption system. A \textit{normal} private key or ciphertext are generated from key generation or encryption algorithm. As for semi-functional private key, it can decrypt all normally generated ciphertext. However, decryption will fail if one try to decrypt a semi-functional ciphertext with a semi-functional privacy key. Similarly, semi-functional ciphertext can be decrypted only by normal private key. Note that the semi-functional ciphertext and semi-functional private keys are used in our proof process, and you can't search for them in the actual system.\\
 The security of our scheme depends on three hypotheses which are mentioned in section \ref{Complexity_Assumptions} and we utilize hybrid argumentation techniques to prove the security of the scheme with the indistinguishability of a series of games. The followings displayed are the components of our proof procedure.
 \begin{itemize}
 	\item Normal ciphertext: The normal ciphertext is like: 
 	\begin{equation}
 		\langle \tilde{C'},C'_0,\{(C'_{i,t_i})_{1 \leq t_i \leq n_i, 1 \leq i \leq n}\}  \rangle
 	\end{equation}
-	\item Semi-functional ciphertext: Select a random number $x_0 \in \mathbb{Z}_N/0$ and in each \textit{LINode}, for $\forall t_i(i \in \mathbb{Z}_n/0,t_i \in \mathbb{Z}_{n_i}/0)$, randomly generates $x_{i, t_i} \in \mathbb{Z}_N/0$, then, the semi-functional ciphertext is: 
+	\item Semi-functional ciphertext: Select a random number $x_0 \in \mathbb{Z}_N/0$ and in each \textit{LPNode}, for $\forall t_i(i \in \mathbb{Z}_n/0,t_i \in \mathbb{Z}_{n_i}/0)$, randomly generates $x_{i, t_i} \in \mathbb{Z}_N/0$, then, the semi-functional ciphertext is: 
 	\begin{equation}
 		\langle \tilde{C}=\tilde{C'},C_0=C'_0g_q^{x_0},\{C_{i,t_i}=C'_{i,t_i}g_q^{x_{i,t_i}}\}_{1 \leq t_i \leq n_i, 1 \leq i \leq n} \rangle
 	\end{equation}	
@@ -600,10 +602,10 @@ Meanwhile, due to the tree structure, our scheme has more expression ability.
 		\hline
 		\textbf{Scheme} & \textbf{Access Structure} & \textbf{Hidden Policy} & \textbf{Testing} & \textbf{Outsourcing} & \textbf{Verification} \\
 		\hline 
-		Nishide & AND-gates & \checkmark & $\times$   & $\times$   & $\times$    \\ \hline
-		Lai     & AND-gates & \checkmark & $\times$   & $\times$   & $\times$    \\ \hline
+		Nishide & AND-gate  & \checkmark & $\times$   & $\times$   & $\times$    \\ \hline
+		Lai     & AND-gate  & \checkmark & $\times$   & $\times$   & $\times$    \\ \hline
 		Luan    & Tree 		& $\times$   & $\times$   & $\times$   & $\times$    \\ \hline
-		Li		& AND-gates & \checkmark & \checkmark & $\times$   & $\times$    \\ \hline
+		Li		& AND-gate  & \checkmark & \checkmark & $\times$   & $\times$    \\ \hline
 		Xu		& Tree		& \checkmark & $\times$   & $\times$   & $\times$    \\ \hline	
 		Hur		& Tree		& \checkmark & $\times$   & \checkmark & $\times$    \\ \hline
 		Ours    & Tree 		& \checkmark & \checkmark & \checkmark & \checkmark  \\ \hline
@@ -620,7 +622,7 @@ $n$ is the number of all attributes in universe.
 $\mathbb{G}$ and $\mathbb{G}_T$ are the groups or operations in groups(exponentiation, multiplication). 
 $P$ is the time cost of a pairing computation.
 $|\mathbb{G}|$ and $|\mathbb{G}_T|$ indicate the length of one element in group $\mathbb{G}$ and $\mathbb{G}_T$ respectively.
-Similarly, $|\alpha|$ expresses the number of LINodes in the access tree.
+Similarly, $|\alpha|$ expresses the number of LPNodes in the access tree.
 $k$ is the number of attributes associated with the private key of a user.
 $t$ expresses the number of attributes associated with the ciphertext.
 
@@ -631,13 +633,13 @@ In Table \ref{storageTable}, our scheme and the existing similar schemes are com
 Focusing on the size of public key, although our scheme has a higher growth rate than \cite{hur2013attribute} and \cite{helil2017cp}, our scheme has the same growth rate $N+4$ as \cite{muller2011hiding}.
 Turning the perspective to the private key, the length of private key of all aforementioned schemes increases linearly, but the growth rate is different.
 The lowest growth rate $k$ belongs to our scheme, and the growth rates of \cite{helil2017cp}, \cite{hur2013attribute} and \cite{muller2011hiding} are $3k, 3k, 2n$ respectively.
-Finally, in terms of ciphertext length, since we introduce the concept of \textit{LINode}, the ciphertext length is related to the number of \textit{LINodes} and attributes universe.
-When the number of \textit{LINodes} is small, the ciphertext length is also small.
+Finally, in terms of ciphertext length, since we introduce the concept of \textit{LPNode}, the ciphertext length is related to the number of \textit{LPNodes} and attributes universe.
+When the number of \textit{LPNodes} is small, the ciphertext length is also small.
 
 % new paragraph
 In Table \ref{efficiencyTable}, we compare the efficiency of different schemes, including two main aspects of encryption and decryption.
-At the encryption level, since our scheme introduces \textit{LINode}, the encryption efficiency of our scheme depends on the number of \textit{LINodes} and attributes. 
-Fewer \textit{LINodes} means higher encryption efficiency.
+At the encryption level, since our scheme introduces \textit{LPNode}, the encryption efficiency of our scheme depends on the number of \textit{LPNodes} and attributes. 
+Fewer \textit{LPNodes} means higher encryption efficiency.
 At the decryption level, \cite{hur2013attribute}, \cite{helil2017cp} and ours are constant, however our solution is more efficient due to without pairing operations.
 
 % table2
