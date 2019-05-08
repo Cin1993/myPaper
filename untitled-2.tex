@@ -643,7 +643,7 @@ Fewer \textit{LPNodes} means higher encryption efficiency.
 At the decryption level, \cite{hur2013attribute}, \cite{helil2017cp} and ours are constant, however our solution is more efficient due to without pairing operations.
 
 % table2
-\begin{table}[htbp]
+\begin{table}[htb]
 	\caption{Storage of Different Schemes}
 	\resizebox{\textwidth}{10mm}
 	{
@@ -666,7 +666,7 @@ At the decryption level, \cite{hur2013attribute}, \cite{helil2017cp} and ours ar
 
 
 % table3
-\begin{table}[htbp]
+\begin{table}[htb]
 	\centering
 	\caption{Efficient of Different Schemes}
 	\resizebox{\textwidth}{10mm}
@@ -724,7 +724,7 @@ Similarly, when the number of attributes is set to 10, 20 and 30, the overhead o
 Compared with the most expensive scheme \cite{muller2011hiding}, it only takes about $35.48\%$ of storage.
 
 
-\begin{figure}[htbp]
+\begin{figure}[htb]
 	\centering
 	\subfigure[]{
 		\includegraphics[width=0.4\textwidth]{VHPDT_EncryptionTime.pdf}
@@ -738,14 +738,24 @@ Compared with the most expensive scheme \cite{muller2011hiding}, it only takes a
 	\label{fig.encryptionAndDecryption}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[htb]
 	\centering
 	\includegraphics[width=\textwidth]{PrivateKey_Size.pdf}
 	\caption{Size}
 	\label{fig.privateKeySize}
 \end{figure}
 
+\section{Conclusions}
+In this paper, we present a new CP-ABE scheme called VHPDT.
+Meanwhile, based on it, we construct a efficient privacy-presenting message transmission (EPPMT) system for VANET.
+It adopts the techniques of outsourcing and decryption testing, which is suitable for VANET mainly involving embedded devices.
+In addition, EPPMT system is able to fully protect user privacy, and only users who meet a specific access structure can read the content of the ciphertext.
+Finally we prove the security of our scheme and do plentiful simulation experiments to illustrate the advantages of the scheme.
 
+However, there are still some open issues worth studying. 
+In our scheme, the size of ciphertext is related to the number of \textit{LPNodes} and attributes.
+In case of complex practical application scenarios, the ciphertext length is too long.
+Therefore, designing a fixed ciphertext length scheme would be a promising direction. 
 
 
 
