@@ -30,6 +30,13 @@
 \newblock {\em IEEE Transactions on Parallel and Distributed Systems 24}, 11
   (2013), 2171--2180.
 
+\bibitem{ibraimi2009efficient}
+{\sc Ibraimi, L., Tang, Q., Hartel, P., and Jonker, W.}
+\newblock Efficient and provable secure ciphertext-policy attribute-based
+  encryption schemes.
+\newblock In {\em International Conference on Information Security Practice and
+  Experience\/} (2009), Springer, pp.~1--12.
+
 \bibitem{lai2013attribute}
 {\sc Lai, J., Deng, R.~H., Guan, C., and Weng, J.}
 \newblock Attribute-based encryption with verifiable outsourced decryption.
@@ -48,6 +55,13 @@
   (hierarchical) inner product encryption.
 \newblock In {\em Annual International Conference on the Theory and
   Applications of Cryptographic Techniques\/} (2010), Springer, pp.~62--91.
+
+\bibitem{li2016ciphertext}
+{\sc Li, J., Wang, H., Zhang, Y., and Shen, J.}
+\newblock Ciphertext-policy attribute-based encryption with hidden access
+  policy and testing.
+\newblock {\em Ksii Transactions on Internet \& Information Systems 10}, 7
+  (2016).
 
 \bibitem{li2012efficient}
 {\sc Li, X., Gu, D., Ren, Y., Ding, N., and Yuan, K.}
